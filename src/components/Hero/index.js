@@ -1,6 +1,8 @@
 // src/components/Hero/index.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -22,14 +24,6 @@ const HeroSection = styled.section`
   }
 `;
 
-const GoldenOverlay = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(247, 163, 28, 0.15) 0%, rgba(247, 163, 28, 0) 100%);
-  z-index: 2;
-`;
-
 const Content = styled.div`
   position: relative;
   z-index: 3;
@@ -39,16 +33,15 @@ const Content = styled.div`
   text-align: center;
 `;
 
-const MainTitle = styled.h1`
+const MainTitle = styled.div`
   font-size: 56px;
-  font-weight: 500;
   color: white;
   line-height: 1.2;
   margin-bottom: 20px;
+  font-weight: 500;
 
-  span {
+  .highlight {
     color: #f7a31c;
-    font-weight: 500;
   }
 `;
 
@@ -57,6 +50,7 @@ const SubTitle = styled.p`
   color: white;
   margin-bottom: 10px;
   font-weight: 300;
+  text-align: center;
 `;
 
 const ReserveButton = styled.button`
@@ -77,27 +71,33 @@ const ReserveButton = styled.button`
   }
 `;
 
-const CarouselContainer = styled.div`
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-`;
+const StyledCarousel = styled(Carousel)`
+  .carousel .slide {
+    background: transparent;
+    padding: 0 10px;
+  }
 
-const CarouselTrack = styled.div`
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 20px;
-  padding: 0 20px;
+  .carousel.carousel-slider {
+    overflow: visible;
+  }
+
+  .carousel .control-dots {
+    display: none;
+  }
+
+  .carousel .control-arrow {
+    background: none;
+    border: none;
+    color: #f7a31c;
+  }
 `;
 
 const Card = styled.div`
-  flex: 0 0 calc(33.33% - 20px);
   background: rgba(20, 20, 20, 0.5);
   border: 1px solid rgba(247, 163, 28, 0.3);
   border-radius: 10px;
   overflow: hidden;
-  min-width: 300px;
+  margin: 0 10px;
 
   img {
     width: 100%;
@@ -123,87 +123,42 @@ const Card = styled.div`
   }
 `;
 
-const CarouselButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #f7a31c;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 2;
-  padding: 10px;
-  
-  &:hover {
-    color: #ff9900;
-  }
-
-  &.prev {
-    left: 0;
-  }
-
-  &.next {
-    right: 0;
-  }
-`;
-
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const cards = [
     {
       title: "Network",
       description: "Connect with industry leaders, founders, and like-minded professionals to expand your business network.",
-      image: "https://source.unsplash.com/random/800x600?networking"
+      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     },
     {
       title: "Learn",
       description: "Gain valuable insights from expert-led panel discussions and master the art of pitching yourself",
-      image: "https://source.unsplash.com/random/800x600?learning"
+      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     },
     {
       title: "Experience",
       description: "Enjoy an evening filled with vibrant energy, live entertainment, and an electrifying atmosphere",
-      image: "https://source.unsplash.com/random/800x600?event"
+      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     },
     {
       title: "Succeed",
       description: "Turn conversations into opportunities – secure deals, partnerships, and collaborations that drive success.",
-      image: "https://source.unsplash.com/random/800x600?success"
+      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     },
     {
       title: "Pitch",
       description: "Perfect your pitch and share your ideas with decision-makers.",
-      image: "https://source.unsplash.com/random/800x600?presentation"
+      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === cards.length - 3 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? cards.length - 3 : prevIndex - 1
-    );
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <HeroSection>
-      <GoldenOverlay />
       <Content>
         <MainTitle>
           Make Your Mondays Meaningful:
           <br />
-          <span>Network, Learn, and Grow</span> with
+          <span className="highlight">Network, Learn, and Grow</span> with
           <br />
           Money Monday Dubai!
         </MainTitle>
@@ -215,23 +170,28 @@ const Hero = () => {
         </SubTitle>
         <ReserveButton>Reserve Your Spot</ReserveButton>
 
-        <CarouselContainer>
-          <CarouselButton className="prev" onClick={prevSlide}>❮</CarouselButton>
-          <CarouselTrack style={{
-            transform: `translateX(-${currentIndex * (100 / 3)}%)`
-          }}>
-            {cards.map((card, index) => (
-              <Card key={index}>
-                <img src={card.image} alt={card.title} />
-                <div className="content">
-                  <h3>{card.title}</h3>
-                  <p>{card.description}</p>
-                </div>
-              </Card>
-            ))}
-          </CarouselTrack>
-          <CarouselButton className="next" onClick={nextSlide}>❯</CarouselButton>
-        </CarouselContainer>
+        <StyledCarousel
+          showArrows={true}
+          showStatus={false}
+          showThumbs={false}
+          infiniteLoop={true}
+          centerMode={true}
+          centerSlidePercentage={33.33}
+          autoPlay={true}
+          interval={3000}
+          emulateTouch={true}
+          swipeable={true}
+        >
+          {cards.map((card, index) => (
+            <Card key={index}>
+              <img src={card.image} alt={card.title} />
+              <div className="content">
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </div>
+            </Card>
+          ))}
+        </StyledCarousel>
       </Content>
     </HeroSection>
   );
