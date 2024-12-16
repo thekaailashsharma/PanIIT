@@ -1,7 +1,7 @@
 // src/components/Header/index.js
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -49,7 +49,7 @@ const NavLinks = styled.div`
   align-items: center;
 `;
 
-const NavLink = styled(Link)`
+const StyledNavLink = styled(NavLink)`
   color: #9b9b9b;
   text-decoration: none;
   font-size: 1rem;
@@ -87,10 +87,10 @@ const Header = () => {
 
       <Nav>
         <NavLinks>
-          <NavLink to="/" className="active">Home</NavLink>
-          <NavLink to="/events">Events</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/traders-brawl">Traders Brawl</NavLink>
+          <StyledNavLink to="/" end>Home</StyledNavLink>
+          <StyledNavLink to="/events">Events</StyledNavLink>
+          <StyledNavLink to="/about">About</StyledNavLink>
+          <StyledNavLink to="/traders-brawl">Traders Brawl</StyledNavLink>
         </NavLinks>
         <ReserveButton to="/reserve">Reserve Your Spot</ReserveButton>
       </Nav>

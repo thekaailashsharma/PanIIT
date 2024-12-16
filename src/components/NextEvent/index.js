@@ -117,7 +117,7 @@ const NextEvent = () => {
   const events = [
     {
       title: "How to Successfully Pitch Yourself and Close Deals?",
-      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707",
+      image: "/images/oppp.png",
       date: "Monday, December 9th",
       time: "8:00 PM - 11:00 PM",
       venue: "J'adore Dubai, Hilton Hotel Al Habtoor City"

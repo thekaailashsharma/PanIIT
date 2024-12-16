@@ -80,24 +80,24 @@ const CardContent = styled.div`
 const WhyJoin = () => {
   const cards = [
     {
-      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707",
+      image: "/images/opp1.png",
       text: "Learn from ",
       highlight: "Industry Experts",
       subtext: "through insightful panel discussions."
     },
     {
-      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707",
+      image: "/images/opp2.png",
       text: "Discover new opportunities in ",
       highlight: "Web3, Blockchain, And Finance"
     },
     {
-      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707",
+      image: "/images/opp3.png",
       text: "Network with like-minded ",
       highlight: "professionals",
       subtext: "and decision-makers."
     },
     {
-      image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707",
+      image: "/images/opp4.png",
       text: "Enjoy a ",
       highlight: "Vibrant Ambiance",
       subtext: "with live entertainment."

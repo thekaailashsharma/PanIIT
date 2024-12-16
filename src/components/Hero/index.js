@@ -1,56 +1,28 @@
 // src/components/Hero/index.js
 import React from 'react';
 import styled from 'styled-components';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const HeroSection = styled.section`
   min-height: 100vh;
-  background: #000000;
+  background: #000; /* Background color */
   position: relative;
   padding-top: 80px;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(#ffffff06 2px, transparent 2px);
-    background-size: 30px 30px;
-    z-index: 1;
-  }
-`;
-
-const Content = styled.div`
-  position: relative;
-  z-index: 3;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
+  color: white;
   text-align: center;
 `;
 
-const MainTitle = styled.div`
-  font-size: 56px;
-  color: white;
-  line-height: 1.2;
+const MainTitle = styled.h1`
+  font-size: 3rem;
   margin-bottom: 20px;
-  font-weight: 500;
-
-  .highlight {
-    color: #f7a31c;
-  }
+  color: #f7a31c; /* Golden color */
 `;
 
 const SubTitle = styled.p`
-  font-size: 20px;
-  color: white;
-  margin-bottom: 10px;
-  font-weight: 300;
-  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
 `;
 
 const ReserveButton = styled.button`
@@ -62,33 +34,10 @@ const ReserveButton = styled.button`
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  margin: 30px 0 60px;
-  transition: all 0.3s ease;
+  margin: 30px 0;
 
   &:hover {
-    transform: translateY(-2px);
     background: #ff9900;
-  }
-`;
-
-const StyledCarousel = styled(Carousel)`
-  .carousel .slide {
-    background: transparent;
-    padding: 0 10px;
-  }
-
-  .carousel.carousel-slider {
-    overflow: visible;
-  }
-
-  .carousel .control-dots {
-    display: none;
-  }
-
-  .carousel .control-arrow {
-    background: none;
-    border: none;
-    color: #f7a31c;
   }
 `;
 
@@ -132,12 +81,12 @@ const Hero = () => {
     },
     {
       title: "Learn",
-      description: "Gain valuable insights from expert-led panel discussions and master the art of pitching yourself",
+      description: "Gain valuable insights from expert-led panel discussions and master the art of pitching yourself.",
       image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     },
     {
       title: "Experience",
-      description: "Enjoy an evening filled with vibrant energy, live entertainment, and an electrifying atmosphere",
+      description: "Enjoy an evening filled with vibrant energy, live entertainment, and an electrifying atmosphere.",
       image: "https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
     },
     {
@@ -154,45 +103,40 @@ const Hero = () => {
 
   return (
     <HeroSection>
-      <Content>
-        <MainTitle>
-          Make Your Mondays Meaningful:
-          <br />
-          <span className="highlight">Network, Learn, and Grow</span> with
-          <br />
-          Money Monday Dubai!
-        </MainTitle>
-        <SubTitle>
-          Join Dubai's Premier Networking Event For Entrepreneurs And Business Professionals
-        </SubTitle>
-        <SubTitle>
-          Every Monday Evening.
-        </SubTitle>
-        <ReserveButton>Reserve Your Spot</ReserveButton>
+      <MainTitle>
+        Make Your Mondays Meaningful: 
+        <br />
+        <span style={{ color: '#f7a31c' }}>Network, Learn, and Grow</span> with
+        <br />
+        Money Monday Dubai!
+      </MainTitle>
+      <SubTitle>
+        Join Dubai's Premier Networking Event For Entrepreneurs And Business Professionals
+        <br />
+        Every Monday Evening.
+      </SubTitle>
+      <ReserveButton>Reserve Your Spot</ReserveButton>
 
-        <StyledCarousel
-          showArrows={true}
-          showStatus={false}
-          showThumbs={false}
-          infiniteLoop={true}
-          centerMode={true}
-          centerSlidePercentage={33.33}
-          autoPlay={true}
-          interval={3000}
-          emulateTouch={true}
-          swipeable={true}
-        >
-          {cards.map((card, index) => (
-            <Card key={index}>
-              <img src={card.image} alt={card.title} />
-              <div className="content">
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-            </Card>
-          ))}
-        </StyledCarousel>
-      </Content>
+      <Carousel
+        showArrows={true}
+        showStatus={false}
+        showThumbs={false}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={3000}
+        emulateTouch={true}
+        swipeable={true}
+      >
+        {cards.map((card, index) => (
+          <Card key={index}>
+            <img src={card.image} alt={card.title} />
+            <div className="content">
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </div>
+          </Card>
+        ))}
+      </Carousel>
     </HeroSection>
   );
 };
