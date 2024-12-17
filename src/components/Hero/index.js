@@ -4,9 +4,16 @@ import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+const BackgroundImage = styled.section`
+  min-height: 150vh;
+  z-index: 100;
+  background: url('/images/Group 628010.png') center no-repeat;
+`;
+
+
 const HeroSection = styled.section`
-  min-height: 100vh;
-  background: #000; /* Background color */
+  min-height: 150vh;
+  background: url('/images/dots.png')center no-repeat; 
   position: relative;
   padding-top: 80px;
   overflow: hidden;
@@ -15,58 +22,68 @@ const HeroSection = styled.section`
 `;
 
 const MainTitle = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: #f7a31c; /* Golden color */
+  font-size: 50px;
+  line-height: 3rem;
+  padding: 8rem 0 20px 0;
+  font-weight: 400;
+  font-family: 'Sawarabi Gothic', sans-serif;
 `;
 
 const SubTitle = styled.p`
-  font-size: 1.5rem;
-  margin-bottom: 40px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+  font-size: 20px;
+  color: white;
 `;
 
 const ReserveButton = styled.button`
-  background: #f7a31c;
+  background: linear-gradient(to right, #EF7A42, #FFCB37);
   color: black;
   border: none;
   padding: 15px 30px;
   border-radius: 5px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
-  margin: 30px 0;
+  margin: 30px 0 80px 0;
 
   &:hover {
-    background: #ff9900;
-  }
+  background: linear-gradient(to right, #FFCB37, #EF7A42);
+  transform: translateY(-1px);
+}
+ 
 `;
 
 const Card = styled.div`
-  background: rgba(20, 20, 20, 0.5);
-  border: 1px solid rgba(247, 163, 28, 0.3);
+ background: rgba(20, 20, 20, 0.5);
+  // border: 1px solid rgba(247, 163, 28, 0.3);
   border-radius: 10px;
-  overflow: hidden;
   margin: 0 10px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  user-select: none; 
 
   img {
     width: 100%;
-    height: 200px;
+    height: 300px;
+    padding:10px;
     object-fit: cover;
   }
 
   .content {
-    padding: 20px;
+    padding: 10px;
     text-align: left;
   }
 
   h3 {
-    color: #f7a31c;
-    font-size: 24px;
+    color:rgb(255, 255, 255);
+    border-bottom: 0.2px solid rgb(122, 122, 122);
+    font-weight:400;
+    font-size: 23px;
     margin-bottom: 10px;
   }
 
   p {
-    color: #9b9b9b;
+    color:rgb(255, 255, 255);
     font-size: 14px;
     line-height: 1.4;
   }
@@ -103,6 +120,7 @@ const Hero = () => {
 
   return (
     <HeroSection>
+      <BackgroundImage>
       <MainTitle>
         Make Your Mondays Meaningful: 
         <br />
@@ -118,7 +136,7 @@ const Hero = () => {
       <ReserveButton>Reserve Your Spot</ReserveButton>
 
       <Carousel
-        showArrows={true}
+        showArrows = {false}
         showStatus={false}
         showThumbs={false}
         infiniteLoop={true}
@@ -126,6 +144,8 @@ const Hero = () => {
         interval={3000}
         emulateTouch={true}
         swipeable={true}
+        centerMode
+        centerSlidePercentage={24}
       >
         {cards.map((card, index) => (
           <Card key={index}>
@@ -137,6 +157,7 @@ const Hero = () => {
           </Card>
         ))}
       </Carousel>
+      </BackgroundImage>
     </HeroSection>
   );
 };

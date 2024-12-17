@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
+import Hero from './components/Hero/index';
 import PastEditions from './components/PastEditions';
 import WhatIs from "./components/WhatIs";
 import WhyJoin from "./components/WhyJoin";
@@ -24,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
+          <Hero/>
             <WhatIs />
             <WhyJoin />
             <NextEvent />
