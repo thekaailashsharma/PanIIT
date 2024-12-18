@@ -27,17 +27,21 @@ const Title = styled.h2`
 
 const BlurBackground = styled.div`
 background:rgba(3, 3, 3, 0.69);
-margin: 0 20rem;
+margin: 0 10rem;
 padding: 1rem;
 `;
 
 const TextContainer = styled.div`
-display:grid;
-grid-template-columns: 50% 50%;
+display:flex;
+flex-direction:row;
+text-align:left;
+margin-bottom:2rem;
 `;
 
 const PoweredByLogo = styled.img`
-    padding:20px;
+  height:80%;
+  width: auto;
+  margin:auto;
 `;
 
 const MainTitle = styled.h1`
@@ -47,40 +51,43 @@ const MainTitle = styled.h1`
 `;
 
 const Description = styled.p`
-  max-width: 600px;
+  max-width: 55%;
+  padding-right: 4rem;
   margin: 0 auto;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 24px;
 `;
 
 const ImagesContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin: 30px 0;
+  gap: 10px;
+
 `;
 
 const EventImage = styled.img`
-  width: 300px;
-  border-radius: 10px;
+  width:40%;
+  height:auto;
+  border-radius: 4px;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 `;
 
 const ContactButton = styled.button`
-  background-color: ${colors.buttonBackground};
-  color: ${colors.buttonText};
-  padding: 12px 24px;
+  background: linear-gradient(to right, #EF7A42, #FFCB37);
+  color: black;
   border: none;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 15px 30px;
   border-radius: 5px;
+  font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin: 3rem 0 80px 0;
 
   &:hover {
-    background-color: #e59400;
-  }
+  background: linear-gradient(to right, #FFCB37, #EF7A42);
+  transform: translateY(-1px);
+}
+ 
 `;
 
 const PoweredBy = () => {
@@ -100,11 +107,11 @@ const PoweredBy = () => {
       </TextContainer>
       <ImagesContainer>
         <EventImage
-          src="https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
+          src="https://placehold.co/463x300"
           alt="Event 1"
         />
         <EventImage
-          src="https://firebasestorage.googleapis.com/v0/b/gdsc-sies-gst.appspot.com/o/Frame%201261156484.png?alt=media&token=3790b781-a69a-417a-b85f-5c64c8ae2707"
+          src="https://placehold.co/463x300"
           alt="Event 2"
         />
       </ImagesContainer>
