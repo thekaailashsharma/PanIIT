@@ -2,78 +2,140 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const AboutUsSectionContainer = styled.div`
-  background-color: #000; /* Background color */
-  color: white;
-  padding: 40px 20px;
+  background: url('/images/background.png') center/cover no-repeat;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  border-radius: 8px; /* Rounded corners */
+  padding: 40px 74px; /* Top, Right, Bottom, Left padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  box-sizing: border-box; /* Include padding and border in dimensions */
+  margin: 0 auto; /* Center the container horizontally */
+  color: white;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
+  background: linear-gradient(90deg, #CCCCCC 0%, #FF6B2C 35%, #FFB800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
 `;
 
 const Subtitle = styled.h3`
-  font-size: 1.5rem;
-  color: #f7a31c; /* Golden color for subtitle */
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #CCCCCC;
+  margin-bottom: 10px;
+  font-weight: normal;
 `;
 
 const Description = styled.p`
   margin-bottom: 30px;
+  color: #CCCCCC;
 `;
 
-const ButtonContainer = styled.div`
+const IconContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px; /* Space between buttons */
+  gap: 20px;
+  margin-bottom: 40px;
 `;
 
-const Button = styled.a`
-  background-color: #222; /* Default button background */
+const IconBox = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0A0A0A;
+  border-top: 5px solid ${(props) => props.borderColor || '#FF6B2C'};
+  padding: 20px;
+  width: 180px;
+  height: 120px;
   color: white;
-  padding: 15px 20px;
-  border-radius: 8px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+  font-family: 'Sawarabi Gothic', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 
   &:hover {
-    background-color: #f7a31c; /* Change to golden on hover */
+    background-color: #222;
+  }
+
+  img {
+    width: 40px;
+    margin-bottom: 10px;
   }
 `;
 
 const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  max-width: 600px; /* Limit width */
-  margin: 0 auto; /* Center the form */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns layout */
+  gap: 20px;
+  max-width: 1102px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(17, 17, 17, 0.9);
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Stack fields on mobile */
+  }
+`;
+
+const Label = styled.label`
+  font-size: 1rem;
+  color: #F4F4F4;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: normal;
+  text-align: left;
 `;
 
 const Input = styled.input`
-  margin: 10px 0;
-  padding: 10px;
+  padding: 15px;
+  background: transparent;
   border: none;
-  border-radius: 4px;
-  background-color: #222;
+  border-bottom: 1px solid #333;
   color: white;
+  width: 100%;
+  
+  &::placeholder {
+    color: #525252;
+    text-transform: uppercase;
+  }
 `;
 
 const TextArea = styled.textarea`
-  margin: 10px 0;
-  padding: 10px;
+  grid-column: 1 / -1; /* Makes the textarea span across both columns */
+  background: transparent;
   border: none;
-  border-radius: 4px;
-  background-color: #222;
+  border-bottom: 1px solid #333;
+  padding: 15px;
   color: white;
+  width: 100%; /* Occupy full width of the container */
+
+  &::placeholder {
+    color: #525252;
+  }
 `;
 
 const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px 0;
+  grid-column: 1 / -1;
 `;
 
 const Checkbox = styled.input`
@@ -81,17 +143,21 @@ const Checkbox = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #f7a31c;
+  background: linear-gradient(90deg, #EF7A42 0%, #FFCB37 100%);
   color: black;
-  padding: 10px 20px;
+  padding: 8px 16px;
+  gap: 8px;
+  border-radius: 9px 0px 0px 0px;
+  width: 156px; /* Fixed width */
+  height: 48px; /* Fixed height */
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s;
+  opacity: 0; /* Initially set to 0 (invisible) */
 
   &:hover {
-    background-color: #ff9900;
+    opacity: 0.9;
   }
 `;
 
@@ -115,7 +181,6 @@ const AboutUsSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log(formData);
   };
 
@@ -124,62 +189,99 @@ const AboutUsSection = () => {
       <Title>SAY HI! AND TELL US HOW CAN WE HELP YOU.</Title>
       <Subtitle>Get In Touch To Discuss Your Project Or Service Expectations.</Subtitle>
       <Description>Simply Fill In The Form Below Or Send Us An E-Mail To Info@Justux.Com</Description>
-      <ButtonContainer>
-        <Button href="#">Chat With Us</Button>
-        <Button href="#">Discord Link</Button>
-        <Button href="#">Telegram</Button>
-      </ButtonContainer>
+      
+      <IconContainer>
+        <IconBox href="#" borderColor="#FF6B2C">
+          <img src="/images/chatwithus.png" alt="Chat" />
+          Chat With Us
+        </IconBox>
+        <IconBox href="#" borderColor="#5E63FF">
+          <img src="/images/Discord Link.png" alt="Discord" />
+          Discord Link
+        </IconBox>
+        <IconBox href="#" borderColor="#F7A31C">
+          <img src="/images/Telegram.png" alt="Telegram" />
+          Telegram
+        </IconBox>
+        <IconBox href="mailto:hello@moneymonday" borderColor="#009FFF">
+          <img src="/images/gmail.png" alt="Email" />
+          hello@moneymonday
+        </IconBox>
+      </IconContainer>
+
       <FormContainer onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="fullName"
-          placeholder="FULL NAME*"
-          value={formData.fullName}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          type="email"
-          name="email"
-          placeholder="EMAIL*"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          type="text"
-          name="companyName"
-          placeholder="COMPANY NAME"
-          value={formData.companyName}
-          onChange={handleChange}
-        />
-        <Input
-          type="text"
-          name="referredBy"
-          placeholder="WHO REFERRED YOU TO US?"
-          value={formData.referredBy}
-          onChange={handleChange}
-        />
-        <TextArea
-          name="message"
-          placeholder="MESSAGE"
-          value={formData.message}
-          onChange={handleChange}
-          rows="4"
-        />
-        <CheckboxContainer>
-          <Checkbox
-            type="checkbox"
-            name="consent"
-            checked={formData.consent}
+        <div>
+          <Label htmlFor="fullName">Full Name*</Label>
+          <Input
+            type="text"
+            name="fullName"
+            id="fullName"
+            placeholder="So  we know how to address you"
+            value={formData.fullName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="companyName">Company Name</Label>
+          <Input
+            type="text"
+            name="companyName"
+            id="companyName"
+            placeholder="So we can tailor the services to your business needs"
+            value={formData.companyName}
             onChange={handleChange}
           />
-          <span>I agree and consent to the Privacy Policy.</span>
+        </div>
+        <div>
+          <Label htmlFor="email">Email*</Label>
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="So we can respond promptly to your enquiry"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="referredBy">Who Referred You?</Label>
+          <Input
+            type="text"
+            name="referredBy"
+            id="referredBy"
+            placeholder="So we can say thank you"
+            value={formData.referredBy}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <Label htmlFor="message">Message</Label>
+          <TextArea
+            name="message"
+            id="message"
+            placeholder="Give us more details about your request so the colleagues with relevant experience can focus on your needs"
+            value={formData.message}
+            onChange={handleChange}
+            rows="4"
+          />
+        </div>
+        <CheckboxContainer>
+          <div>
+            <Checkbox
+              type="checkbox"
+              name="consent"
+              checked={formData.consent}
+              onChange={handleChange}
+            />
+            <span>I agree and consent to the Privacy Policy, its terms of processing of my personal data.</span>
+          </div>
+          <SubmitButton type="submit">Let's Work Together</SubmitButton>
         </CheckboxContainer>
-        <SubmitButton type="submit">Let’s Work Together</SubmitButton>
       </FormContainer>
     </AboutUsSectionContainer>
   );
 };
 
-export default AboutUsSection; 
+export default AboutUsSection;
