@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the styles
 
 const Section = styled.div`
   background: #000000;
-  padding: 100px 20px;
+  padding: 0 20px 100px 20px;
   text-align: center;
 `;
 
@@ -31,17 +33,29 @@ const Subtitle = styled.h3`
   font-weight: 400;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+const CardContainer = styled.div`
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Initially zoom out the card */
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
+
+  /* When hovered, increase the size of the card container as well */
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const Card = styled.div`
   position: relative;
-  aspect-ratio: 3/4;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border-radius: 10px;
   
@@ -53,7 +67,7 @@ const Card = styled.div`
   }
 
   &:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Slight zoom for the image */
   }
 `;
 
@@ -69,10 +83,13 @@ const CardContent = styled.div`
 
   p {
     margin: 0;
+    font-size: 24px;
+    font-weight: 400;
     line-height: 1.4;
   }
 
   .orange-text {
+    font-weight: 700;
     color: #f7a31c;
   }
 `;
@@ -112,21 +129,37 @@ const WhyJoin = () => {
         <span className="white">Money Monday Dubai?</span>
       </Title>
       <Subtitle>Here's how we make your Mondays impactful</Subtitle>
-      
-      <Grid>
+
+      <Carousel
+        infiniteLoop
+        useKeyboardArrows
+        autoPlay
+        interval={3000}
+        transitionTime={500}
+        showArrows
+        showThumbs={false}
+        showStatus={false}
+        swipeable
+        centerMode
+        centerSlidePercentage={24}
+      >
         {cards.map((card, index) => (
-          <Card key={index}>
-            <img src={card.image} alt={card.highlight} />
-            <CardContent>
-              <p>
-                {card.text}
-                <span className="orange-text">{card.highlight}</span>
-                {card.subtext && <><br />{card.subtext}</>}
-              </p>
-            </CardContent>
-          </Card>
+          <div key={index}>
+            <CardContainer>
+              <Card>
+                <img src={card.image} alt={card.highlight} />
+                <CardContent>
+                  <p>
+                    {card.text}
+                    <span className="orange-text">{card.highlight}</span>
+                    {card.subtext && <><br />{card.subtext}</>}
+                  </p>
+                </CardContent>
+              </Card>
+            </CardContainer>
+          </div>
         ))}
-      </Grid>
+      </Carousel>
     </Section>
   );
 };

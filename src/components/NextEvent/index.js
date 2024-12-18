@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import styled from "styled-components";
 
 const Section = styled.div`
   background: #000000;
-  padding: 100px 0;
+  padding: 15rem 0;
   position: relative;
   overflow: hidden;
 `;
@@ -14,13 +16,7 @@ const GridBackground = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(#333 1px, transparent 1px),
-    linear-gradient(90deg, #333 1px, transparent 1px);
-  background-size: 50px 50px;
-  perspective: 1000px;
-  transform: rotateX(60deg);
-  transform-origin: top;
-  opacity: 0.2;
+  background: url("/images/3D Bg.png") no-repeat center center;
 `;
 
 const Container = styled.div`
@@ -41,29 +37,23 @@ const Title = styled.h2`
   }
 `;
 
-const CarouselContainer = styled.div`
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 0 40px;
-`;
-
-const CarouselTrack = styled.div`
-  display: flex;
-  transition: transform 0.5s ease;
-`;
-
 const EventCard = styled.div`
-  flex: 0 0 100%;
+  margin: 0rem 1.5rem;
+  gap: 20px;
   padding: 20px;
-  
+  background-color: rgba(30, 30, 30, 0.45);
+  backdrop-filter: blur(2px);
+  text-align: center;
   img {
     width: 100%;
-    height: 400px;
+    height: 300px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
   }
+    &:hover{
+  border-left: 2px solid #EF7A42;
+    }
 `;
 
 const EventTitle = styled.h3`
@@ -95,34 +85,22 @@ const DetailBox = styled.div`
   }
 `;
 
-const CarouselDots = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-`;
-
-const Dot = styled.button`
-  width: 50px;
-  height: 4px;
-  background: ${props => props.active ? '#f7a31c' : '#333'};
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-`;
-
 const NextEvent = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const events = [
     {
       title: "How to Successfully Pitch Yourself and Close Deals?",
       image: "/images/oppp.png",
       date: "Monday, December 9th",
       time: "8:00 PM - 11:00 PM",
-      venue: "J'adore Dubai, Hilton Hotel Al Habtoor City"
+      venue: "J'adore Dubai, Hilton Hotel Al Habtoor City",
     },
-    // Add more events if needed
+    {
+      title: "AI in Business: Shaping the Future",
+      image: "/images/oppp.png",
+      date: "Tuesday, December 10th",
+      time: "6:00 PM - 9:00 PM",
+      venue: "Tech Park, Innovation Center Dubai",
+    },
   ];
 
   return (
@@ -133,40 +111,37 @@ const NextEvent = () => {
           Next <span>Event</span> Details
         </Title>
 
-        <CarouselContainer>
-          <CarouselTrack style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            {events.map((event, index) => (
-              <EventCard key={index}>
-                <img src={event.image} alt={event.title} />
-                <EventTitle>{event.title}</EventTitle>
-                <EventDetails>
-                  <DetailBox>
-                    <h4>Date</h4>
-                    <p>{event.date}</p>
-                  </DetailBox>
-                  <DetailBox>
-                    <h4>Time</h4>
-                    <p>{event.time}</p>
-                  </DetailBox>
-                  <DetailBox>
-                    <h4>Venue</h4>
-                    <p>{event.venue}</p>
-                  </DetailBox>
-                </EventDetails>
-              </EventCard>
-            ))}
-          </CarouselTrack>
-        </CarouselContainer>
-
-        <CarouselDots>
-          {events.map((_, index) => (
-            <Dot 
-              key={index}
-              active={currentSlide === index}
-              onClick={() => setCurrentSlide(index)}
-            />
+        {/* React Responsive Carousel */}
+        <Carousel
+          showArrows
+          autoPlay
+          interval={5000}
+          showThumbs={false}
+          showStatus={false}
+          centerMode
+          centerSlidePercentage={75}
+        >
+          {events.map((event, index) => (
+            <EventCard key={index}>
+              <img src={event.image} alt={event.title} />
+              <EventTitle>{event.title}</EventTitle>
+              <EventDetails>
+                <DetailBox>
+                  <h4>Date</h4>
+                  <p>{event.date}</p>
+                </DetailBox>
+                <DetailBox>
+                  <h4>Time</h4>
+                  <p>{event.time}</p>
+                </DetailBox>
+                <DetailBox>
+                  <h4>Venue</h4>
+                  <p>{event.venue}</p>
+                </DetailBox>
+              </EventDetails>
+            </EventCard>
           ))}
-        </CarouselDots>
+        </Carousel>
       </Container>
     </Section>
   );

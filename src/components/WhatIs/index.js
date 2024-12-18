@@ -3,30 +3,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Section = styled.div`
-  background: #000000;
-  padding: 100px 20px;
+  padding: 5rem 0 0 0px;
   position: relative;
   overflow: hidden;
+  font-family: 'Satoshi', sans-serif;
+`;
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 800px;
-    height: 800px;
-    background: rgba(20, 20, 20, 0.8);
-    transform: rotate(45deg);
-    bottom: -400px;
-    right: -200px;
-    z-index: 1;
-  }
+const ImageDiamond = styled.img`
+  width: 90%;  // Make sure it stretches to the container's width
+  padding: 0 0 0 3rem;
+  height: auto;  // Maintain the aspect ratio
+  display: block;  // Remove extra space below the image
+  z-index:0;
+  position:absolute;
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
+  height: 150vh;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
   position: relative;
   z-index: 2;
 `;
@@ -35,24 +30,45 @@ const Content = styled.div`
   padding-right: 50px;
 `;
 
-const Title = styled.h2`
+const Title1 = styled.h2`
+  text-align:center;
   font-size: 56px;
   font-weight: 500;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   line-height: 1.1;
+  font-family: 'Sawarabi Gothic', sans-serif;
+  height: 40vh;
 
   span {
+    display: inline;;
+    font-weight: 600;
+    color: #f7a31c;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 56px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  font-family: 'Satoshi', sans-serif;
+  span {
     display: block;
+    font-weight: 600;
     color: #f7a31c;
   }
 `;
 
 const Description = styled.p`
-  font-size: 20px;
-  line-height: 1.6;
+  line-height: 40px;
   color: #ffffff;
   margin-bottom: 40px;
+  font-weight: 400;
+   font-family: 'Sawarabi Gothic', sans-serif;
+
+  font-size: 32px;
 `;
 
 const Stats = styled.div`
@@ -60,6 +76,11 @@ const Stats = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 `;
+
+const ContainerStat = styled.div`
+display:grid;
+grid-template-columns: 1fr 1fr;
+gap: 5px;`;
 
 const StatItem = styled.div`
   margin-bottom: 30px;
@@ -83,6 +104,7 @@ const StatLabel = styled.p`
 `;
 
 const VideoContainer = styled.div`
+  padding: 20px 20px 0 20px;
   width: 100%;
   height: 400px;
   background: rgba(20, 20, 20, 0.5);
@@ -120,7 +142,11 @@ const VideoContainer = styled.div`
 const WhatIs = () => {
   return (
     <Section>
+       <Title1>
+          See Our <span>Past Editions</span>
+        </Title1>
       <Container>
+        <ImageDiamond src="/images/diamond_gray.png" alt="Diamond" />
         <Content>
           <Title>
             What is
@@ -132,7 +158,9 @@ const WhatIs = () => {
             industries such as Web3, blockchain, Forex, IT, and finance. Our mission is to create
             meaningful connections and provide actionable insights for business growth.
           </Description>
-          <Stats>
+        </Content>
+        <ContainerStat>
+        <Stats>
             <StatItem>
               <StatNumber>6<span>+</span></StatNumber>
               <StatLabel>Successful Events Hosted</StatLabel>
@@ -150,7 +178,6 @@ const WhatIs = () => {
               <StatLabel>Active Members In Our Community</StatLabel>
             </StatItem>
           </Stats>
-        </Content>
         <VideoContainer>
           <div className="play-button">
             <svg viewBox="0 0 24 24">
@@ -158,6 +185,7 @@ const WhatIs = () => {
             </svg>
           </div>
         </VideoContainer>
+        </ContainerStat>
       </Container>
     </Section>
   );
