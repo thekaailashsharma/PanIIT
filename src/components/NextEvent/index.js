@@ -96,7 +96,7 @@ const NextEvent = () => {
     },
     {
       title: "AI in Business: Shaping the Future",
-      image: "/images/ai-event.png",
+      image: "/images/oppp.png",
       date: "Tuesday, December 10th",
       time: "6:00 PM - 9:00 PM",
       venue: "Tech Park, Innovation Center Dubai",
