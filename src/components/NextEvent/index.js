@@ -38,6 +38,7 @@ const Title = styled.h2`
 `;
 
 const EventCard = styled.div`
+  user-select: none;
   margin: 0rem 1.5rem;
   gap: 20px;
   padding: 20px;
@@ -120,6 +121,7 @@ const NextEvent = () => {
           showStatus={false}
           centerMode
           centerSlidePercentage={75}
+          swipeable
         >
           {events.map((event, index) => (
             <EventCard key={index}>

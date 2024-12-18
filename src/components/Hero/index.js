@@ -5,17 +5,15 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const BackgroundImage = styled.section`
-  min-height: 150vh;
-  z-index: 100;
+  min-height: 140vh;
   background: url('/images/Group 628010.png') center no-repeat;
 `;
 
 
 const HeroSection = styled.section`
-  min-height: 150vh;
+  min-height: 50vh;
   background: url('/images/dots.png')center no-repeat; 
   position: relative;
-  padding-top: 80px;
   overflow: hidden;
   color: white;
   text-align: center;
