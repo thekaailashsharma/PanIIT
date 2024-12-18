@@ -19,7 +19,7 @@ const Testimonials = () => {
         transition: 'background 0.3s ease, transform 0.2s ease',
     };
     return (
-        <div style={{ textAlign: 'center', backgroundColor: '#000', color: '#fff', padding: '40px 20px' }}>
+        <div style={{ textAlign: 'center', backgroundColor: '#000', color: '#fff', padding: '40px 20px 10px 20px' }}>
             {/* Section Headers */}
             <div style={{  backgroundColor:'#FFFFFF0F', borderTop: '1px solid #262626',
                 borderBottom: '1px solid #262626', height: '15rem', display:'grid',gridTemplateColumns: '70% 30%',
@@ -76,10 +76,12 @@ const Testimonials = () => {
                         }}>
                         <div style={{padding:'2rem',
                             display:'grid',
-                            gridTemplateColumns: '10% 90%',
+                            gridTemplateColumns: '1fr 3fr',
+                            justifyContent:'center',
+                            margin:'auto'
                         }}>
-                        <img src = "https://placehold.co/50x50"/>
-                        <div style={{textAlign:'left'}}>
+                        <img style={{borderRadius:'50%'}} src = "https://placehold.co/50x50" alt="photoperson" />
+                        <div style={{textAlign:'left', padding:'0rem 0 0 1rem'}}>
                         <h4
                             style={{
                                 margin: '0 0 5px',
@@ -100,25 +102,43 @@ const Testimonials = () => {
                         </p>
                         </div>
                         </div>
-                        <div>
-                        <div
-                            style={{
-                                color: '#FFA500',
-                                marginBottom: '10px',
-                            }}
-                        >
-                            ⭐⭐⭐⭐⭐
-                        </div>
-                        <p
-                            style={{
-                                fontSize: '0.95rem',
-                                lineHeight: '1.5',
-                                color: '#ccc',
-                            }}
-                        >
-                            {testimonial.comment}
-                        </p>
-                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    {/* Stars */}
+    <div
+        style={{
+            color: '#FFA500',
+            marginBottom: '-1rem', // Pull stars upwards
+            zIndex: 1,
+            background: '#141414',
+            borderRadius: '1rem',
+            padding: '0.3rem 1rem',
+            border: '1px solid #262626',
+            display: 'inline-block',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.5)', // Optional shadow for lift effect
+        }}
+    >
+        ⭐⭐⭐⭐⭐
+    </div>
+
+    {/* Comment Div */}
+    <p
+        style={{
+            fontSize: '0.95rem',
+            lineHeight: '1.5',
+            background: '#1A1A1A',
+            padding: '2rem 1.5rem 1.5rem',
+            borderRadius: '1rem',
+            color: 'white',
+            textAlign: 'center',
+            border: '1px solid #262626',
+            position: 'relative',
+            zIndex: 0, // Ensures stars remain visually on top
+        }}
+    >
+        {testimonial.comment}
+    </p>
+</div>
+
                     </div>
                 );
             })}
