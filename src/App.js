@@ -15,6 +15,7 @@ import Testimonials from "./components/Testimonials";
 import Community from "./components/Community";
 import Events from './components/Events';
 import About from './components/About';
+import OurPartners from "./components/OurPartners"
 import "./index.css";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <PoweredBy />
             <Testimonials />
             <Community />
+            <OurPartners />
           </>
         } />
         <Route path="/events" element={<Events />} />
