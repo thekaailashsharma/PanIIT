@@ -15,6 +15,7 @@ import Testimonials from "./components/Testimonials";
 import Community from "./components/Community";
 import Events from './components/Events';
 import About from './components/About';
+import "./index.css";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-          <Hero/>
+            <Hero/>
             <WhatIs />
             <WhyJoin />
             <NextEvent />
