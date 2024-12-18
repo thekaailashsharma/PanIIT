@@ -20,8 +20,9 @@ const Section = styled.section`
 `;
 
 const Title = styled.h2`
-  color: ${colors.highlightText};
-  font-size: 1.8rem;
+  color: #FFFFFF;
+ font-size: 2.5rem;
+  font-family: 'Sawarabi Gothic', sans-serif;
   margin: 0;
 `;
 
@@ -47,6 +48,7 @@ const PoweredByLogo = styled.img`
 const MainTitle = styled.h1`
   color: ${colors.highlightText};
   font-size: 2.5rem;
+  font-family: 'Sawarabi Gothic', sans-serif;
   margin: 10px 0;
 `;
 
@@ -55,6 +57,7 @@ const Description = styled.p`
   padding-right: 4rem;
   margin: 0 auto;
   line-height: 1.6;
+  font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 24px;
 `;
 

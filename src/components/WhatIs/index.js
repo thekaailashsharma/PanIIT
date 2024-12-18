@@ -101,6 +101,7 @@ const StatLabel = styled.p`
   font-size: 16px;
   color: white;
   line-height: 1.4;
+  font-family: 'Sawarabi Gothic', sans-serif;
 `;
 
 const VideoContainer = styled.div`

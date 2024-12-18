@@ -6,6 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Syncopate", Arial, sans-serif;
+  font-family: "Satoshi", Arial, sans-serif;
+  font-family: "SawarabiGothic", Arial, sans-serif;
+  font-family: "Angkor", Arial, sans-serif;
 }
 
 @font-face {
@@ -13,6 +16,26 @@ body {
   src: url("./assets/fonts/Syncopate-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi'; 
+  src: url('./assets/fonts/Satoshi-Bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SawarabiGothic'; 
+  src: url('./assets/fonts/SawarabiGothic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Angkor'; 
+  src: url('./assets/fonts/Angkor-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 code {

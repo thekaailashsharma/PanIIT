@@ -26,14 +26,16 @@ const Title1 = styled.div`
 
 const MainTitle = styled.h2`
   font-size: 2.5rem;
+  font-family: 'Sawarabi Gothic', sans-serif;
   margin: 0;
 `;
 
 const SubTitle = styled.h3`
 margin: 0 10rem;
 text-align:left;
+font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 1.8rem;
-  color: ${colors.title};
+  color: #FFFFFF;
   margin-bottom: 20px;
 `;
 
@@ -77,12 +79,14 @@ const Image = styled.img`
 
 const Name = styled.h4`
   margin: 10px 0 5px;
+  font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 1.2rem;
 `;
 
 const Title = styled.p`
   color: ${colors.subtitle};
   margin: 0;
+  font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 1rem;
 `;
 
@@ -107,7 +111,27 @@ const Panelists = () => {
       {/* Panelists Section */}
       <MainTitle>Our Esteemed</MainTitle>
       <Title1>Panelists & Moderators</Title1>
-      <SubTitle>Panelists</SubTitle>
+      <SubTitle>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#EF65FF" // Change color as needed
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginRight: '8px' }} // Space between icon and text
+          >
+            <polygon points="12 2 2 22 22 22 12 2" />
+          </svg>
+          <span style={{ fontFamily: 'Sawarabi Gothic', fontSize: '1.5rem', color: '#fff' }}>
+            PANELISTS
+          </span>
+        </div>
+      </SubTitle>
       <Grid>
         {panelistData.map((panelist) => (
           <Card key={panelist.id}>
@@ -119,7 +143,27 @@ const Panelists = () => {
       </Grid>
 
       {/* Moderators Section */}
-      <SubTitle style={{ marginTop: "50px" }}>Moderators</SubTitle>
+      <SubTitle>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#EF65FF" // Change color as needed
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginRight: '8px' }} // Space between icon and text
+          >
+            <polygon points="12 2 2 22 22 22 12 2" />
+          </svg>
+          <span style={{ fontFamily: 'Sawarabi Gothic', fontSize: '1.5rem', color: '#fff' }}>
+            MODERATORS
+          </span>
+        </div>
+      </SubTitle>
       <Grid>
         {moderatorData.map((moderator) => (
           <Card key={moderator.id}>

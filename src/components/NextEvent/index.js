@@ -31,9 +31,11 @@ const Title = styled.h2`
   font-size: 56px;
   color: white;
   margin-bottom: 60px;
+  font-family: 'Satoshi', sans-serif;
 
   span {
     color: #f7a31c;
+    font-family: 'Satoshi', sans-serif;
   }
 `;
 
@@ -59,6 +61,7 @@ const EventCard = styled.div`
 
 const EventTitle = styled.h3`
   font-size: 32px;
+  font-family: 'Sawarabi Gothic', sans-serif;
   color: white;
   margin-bottom: 30px;
 `;
@@ -78,6 +81,7 @@ const DetailBox = styled.div`
     color: #999;
     font-size: 14px;
     margin-bottom: 10px;
+    font-family: 'Sawarabi Gothic', sans-serif;
   }
 
   p {

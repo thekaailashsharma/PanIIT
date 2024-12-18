@@ -8,24 +8,23 @@ const Footer = () => {
                     <hr style={{ border: 'none', borderTop: '1px solid #808080', margin: '0 0 20px 0', width: '100%', marginBottom: '91px' }} />
                     <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', maxWidth: '800px', marginBottom: '27px' }}>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px', marginRight: '27px' }}>Home</a>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px', marginRight: '27px' }}>Events</a>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px', marginRight: '27px' }}>About</a>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px', marginRight: '27px' }}>Traders Brawl</a>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px' }}>BrandPR</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px', marginRight: '27px' }}>Home</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px', marginRight: '27px' }}>Events</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px', marginRight: '27px' }}>About</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px', marginRight: '27px' }}>Traders Brawl</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px' }}>BrandPR</a>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', maxWidth: '700px',marginBottom: '60px' }}>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px', marginRight: '12px' }}>Contact Us</a>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px', marginRight: '12px' }}>Terms & Conditions</a>
-                            <a href="#" style={{ color: '#808080', textDecoration: 'none', fontSize: '17px' }}>Privacy Policy</a>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', maxWidth: '700px',marginBottom: '80px' }}>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px', marginRight: '12px' }}>Contact Us</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px', marginRight: '12px' }}>Terms & Conditions</a>
+                            <a href="#" style={{ color: '#C6C6C6', textDecoration: 'none', fontSize: '20px' }}>Privacy Policy</a>
                         </div>
                     </nav>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%' , marginBottom: '40px'}}>
-                        <p style={{ fontSize: '200px', color: '#FFD11A', margin: '0', marginBottom: '0', lineHeight: '1', fontFamily: 'Syncopate, sans-serif' }}>MONEY</p>
-                        <p style={{ fontSize: '200px', color: '#FFD11A', margin: '0', lineHeight: '1' }}>MONDAY</p>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%' , marginBottom: '60px'}}>
+                           <img src="/images/moneymonday.png" alt="MONDAY" style={{ width: '90%', height: 'auto' }} />
                     </div>
-                    <p style={{ fontSize: '16px', color: '#FFD11A' }}>© 2024 Moneymonday. All rights reserved.</p>
-                    <p style={{ fontSize: '18px', color: '#fff' }}>Registered in the United Arab Emirates. money monday logo are registered trademarks of MONEYMONDAY Limited in the United Arab Emirates and other countries.</p>
+                    <p style={{ fontSize: '18px', color: '#FFD11A' }}>© 2024 Moneymonday. All rights reserved.</p>
+                    <p style={{ fontSize: '20px', color: '#fff' }}>Registered in the United Arab Emirates. money monday logo are registered trademarks of MONEYMONDAY Limited in the United Arab Emirates and other countries.</p>
                 </footer>
             </div>
         </div>

@@ -13,6 +13,7 @@ const Title = styled.h2`
   font-size: 56px;
   line-height: 1.2;
   margin-bottom: 20px;
+  font-family: 'Satoshi', sans-serif;
 
   .highlight {
     color: #f7a31c;
@@ -28,6 +29,7 @@ const Title = styled.h2`
 
 const Subtitle = styled.h3`
   color: #cccccc;
+  font-family: 'Angkor', sans-serif;
   font-size: 24px;
   margin-bottom: 60px;
   font-weight: 400;
@@ -77,6 +79,7 @@ const CardContent = styled.div`
   left: 0;
   right: 0;
   padding: 20px;
+  font-family: 'Sawarabi Gothic', sans-serif;
   background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
   color: white;
   text-align: left;
@@ -90,6 +93,7 @@ const CardContent = styled.div`
 
   .orange-text {
     font-weight: 700;
+    font-family: 'Satoshi', sans-serif;
     color: #f7a31c;
   }
 `;
