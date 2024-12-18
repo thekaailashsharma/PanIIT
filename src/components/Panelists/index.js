@@ -22,7 +22,8 @@ const Section = styled.section`
 const Title1 = styled.div`
   font-size: 1.8rem;
   color: ${colors.title};
-  margin-bottom: 20px;`;
+  margin-bottom: 20px;
+`;
 
 const MainTitle = styled.h2`
   font-size: 2.5rem;
@@ -31,12 +32,22 @@ const MainTitle = styled.h2`
 `;
 
 const SubTitle = styled.h3`
-margin: 0 10rem;
-text-align:left;
-font-family: 'Sawarabi Gothic', sans-serif;
+  margin: 0 10rem;
+  text-align: left;
+  font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 1.8rem;
   color: #FFFFFF;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    margin: 0 2rem; /* Adjust margin for tablets */
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 480px) {
+    margin: 0 1rem; /* Adjust margin for mobile */
+    font-size: 1.4rem;
+  }
 `;
 
 const Grid = styled.div`
@@ -47,10 +58,12 @@ const Grid = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr); /* Responsive for tablets */
+    margin: 30px 5rem;
   }
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr; /* Responsive for mobile */
+    margin: 30px 1rem;
   }
 `;
 
@@ -68,13 +81,25 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+
+  @media (max-width: 768px) {
+    height: auto; /* Adjust card height for smaller screens */
+  }
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 250px;
-  padding:15px 20px;
+  padding: 15px 20px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 200px; /* Adjust image height for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    height: 180px; /* Further adjust image height for mobile */
+  }
 `;
 
 const Name = styled.h4`

@@ -7,6 +7,11 @@ const Section = styled.div`
   background: #000000;
   padding: 0 20px 100px 20px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px 50px 10px; /* Adjusted padding for better mobile view */
+    margin-top: 50px; /* Add space from top in mobile view */
+  }
 `;
 
 const Title = styled.h2`
@@ -25,6 +30,11 @@ const Title = styled.h2`
   .white {
     color: white;
   }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -33,22 +43,30 @@ const Subtitle = styled.h3`
   font-size: 24px;
   margin-bottom: 60px;
   font-weight: 400;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
 `;
 
 const CardContainer = styled.div`
   position: relative;
-  aspect-ratio: 3/4;
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Initially zoom out the card */
   transform: scale(0.85);
   transition: transform 0.3s ease;
 
-  /* When hovered, increase the size of the card container as well */
+  /* Add margin between cards only on mobile view */
+  @media (max-width: 768px) {
+    transform: scale(1);
+    margin-bottom: 20px; /* Add space between cards */
+  }
+
   &:hover {
     transform: scale(1.1);
   }
@@ -69,7 +87,12 @@ const Card = styled.div`
   }
 
   &:hover img {
-    transform: scale(1.1); /* Slight zoom for the image */
+    transform: scale(1.1); 
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 250px; /* Adjust card height for mobile view */
   }
 `;
 
@@ -95,6 +118,15 @@ const CardContent = styled.div`
     font-weight: 700;
     font-family: 'Satoshi', sans-serif;
     color: #f7a31c;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    padding: 15px;
+
+    p {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -145,7 +177,7 @@ const WhyJoin = () => {
         showStatus={false}
         swipeable
         centerMode
-        centerSlidePercentage={24}
+        centerSlidePercentage={24} /* Desktop view stays the same */
       >
         {cards.map((card, index) => (
           <div key={index}>

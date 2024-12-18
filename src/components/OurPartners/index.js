@@ -50,10 +50,13 @@ const PoweredBy = () => {
             color: "#fff",
             margin: "50px auto",
             borderRadius: "12px",
-            width: "1400px",
-            height:'450px',
-            display:'flex',
-            flexDirection:'row',
+            width: "100%",            // Use full width
+            maxWidth: "1400px",       // Restrict maximum width
+            height: "450px",
+            display: "flex",
+            flexDirection: "row",
+            overflow: "hidden",       // Ensure no overflow
+            boxSizing: "border-box",  // Include padding/border in width calculation
         },
         opportunityHeading: {
             

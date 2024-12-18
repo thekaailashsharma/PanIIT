@@ -1,4 +1,3 @@
-// src/components/WhatIs/index.js
 import React from 'react';
 import styled from 'styled-components';
 
@@ -14,8 +13,13 @@ const ImageDiamond = styled.img`
   padding: 0 0 0 3rem;
   height: auto;  // Maintain the aspect ratio
   display: block;  // Remove extra space below the image
-  z-index:0;
-  position:absolute;
+  z-index: 0;
+  position: absolute;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 const Container = styled.div`
@@ -24,14 +28,24 @@ const Container = styled.div`
   margin: 0 auto;
   position: relative;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    height: auto;  // Allow the container to adjust height for smaller screens
+    padding: 0 15px;
+  }
 `;
 
 const Content = styled.div`
   padding-right: 50px;
+
+  @media (max-width: 768px) {
+    padding-right: 0;
+    text-align: center;
+  }
 `;
 
 const Title1 = styled.h2`
-  text-align:center;
+  text-align: center;
   font-size: 56px;
   font-weight: 500;
   color: white;
@@ -41,9 +55,15 @@ const Title1 = styled.h2`
   height: 40vh;
 
   span {
-    display: inline;;
+    display: inline;
     font-weight: 600;
     color: #f7a31c;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 50px;
+    height: auto;
   }
 `;
 
@@ -54,10 +74,15 @@ const Title = styled.h2`
   margin-bottom: 20px;
   line-height: 1.1;
   font-family: 'Satoshi', sans-serif;
+
   span {
     display: block;
     font-weight: 600;
     color: #f7a31c;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
   }
 `;
 
@@ -66,21 +91,36 @@ const Description = styled.p`
   color: #ffffff;
   margin-bottom: 40px;
   font-weight: 400;
-   font-family: 'Sawarabi Gothic', sans-serif;
-
+  font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 32px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 `;
 
 const Stats = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const ContainerStat = styled.div`
-display:grid;
-grid-template-columns: 1fr 1fr;
-gap: 5px;`;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
 
 const StatItem = styled.div`
   margin-bottom: 30px;
@@ -95,6 +135,10 @@ const StatNumber = styled.h3`
   span {
     color: #f7a31c;
   }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 const StatLabel = styled.p`
@@ -102,6 +146,10 @@ const StatLabel = styled.p`
   color: white;
   line-height: 1.4;
   font-family: 'Sawarabi Gothic', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const VideoContainer = styled.div`
@@ -138,14 +186,19 @@ const VideoContainer = styled.div`
       margin-left: 5px;
     }
   }
+
+  @media (max-width: 768px) {
+    height: 250px;
+    padding: 10px;
+  }
 `;
 
 const WhatIs = () => {
   return (
     <Section>
-       <Title1>
-          See Our <span>Past Editions</span>
-        </Title1>
+      <Title1>
+        See Our <span>Past Editions</span>
+      </Title1>
       <Container>
         <ImageDiamond src="/images/diamond_gray.png" alt="Diamond" />
         <Content>
@@ -161,7 +214,7 @@ const WhatIs = () => {
           </Description>
         </Content>
         <ContainerStat>
-        <Stats>
+          <Stats>
             <StatItem>
               <StatNumber>6<span>+</span></StatNumber>
               <StatLabel>Successful Events Hosted</StatLabel>
@@ -179,13 +232,13 @@ const WhatIs = () => {
               <StatLabel>Active Members In Our Community</StatLabel>
             </StatItem>
           </Stats>
-        <VideoContainer>
-          <div className="play-button">
-            <svg viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </VideoContainer>
+          <VideoContainer>
+            <div className="play-button">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </VideoContainer>
         </ContainerStat>
       </Container>
     </Section>

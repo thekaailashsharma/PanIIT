@@ -27,22 +27,38 @@ const Title = styled.h2`
 `;
 
 const BlurBackground = styled.div`
-background:rgba(3, 3, 3, 0.69);
-margin: 0 10rem;
-padding: 1rem;
+  background: rgba(3, 3, 3, 0.69);
+  margin: 0 10rem;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    margin: 0 1rem; /* Reduce margin on smaller screens */
+    padding: 1rem;
+  }
 `;
 
 const TextContainer = styled.div`
-display:flex;
-flex-direction:row;
-text-align:left;
-margin-bottom:2rem;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    text-align: center;
+  }
 `;
 
 const PoweredByLogo = styled.img`
-  height:80%;
+  height: 80%;
   width: auto;
-  margin:auto;
+  margin: auto;
+
+  @media (max-width: 768px) {
+    height: auto;
+    max-width: 60%; /* Scale down logo size on mobile */
+    margin-bottom: 1rem;
+  }
 `;
 
 const MainTitle = styled.h1`
@@ -59,6 +75,12 @@ const Description = styled.p`
   line-height: 1.6;
   font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 24px;
+
+  @media (max-width: 768px) {
+    max-width: 100%; /* Use full width on smaller screens */
+    padding-right: 0;
+    font-size: 18px;
+  }
 `;
 
 const ImagesContainer = styled.div`
@@ -66,14 +88,23 @@ const ImagesContainer = styled.div`
   justify-content: center;
   gap: 10px;
 
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack images vertically on smaller screens */
+    align-items: center;
+  }
 `;
 
 const EventImage = styled.img`
-  width:40%;
-  height:auto;
+  width: 40%;
+  height: auto;
   border-radius: 4px;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    width: 80%; /* Increase image width on mobile */
+    margin-bottom: 1rem;
+  }
 `;
 
 const ContactButton = styled.button`

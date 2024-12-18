@@ -1,4 +1,3 @@
-// src/components/Hero/index.js
 import React from 'react';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
@@ -7,16 +6,23 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const BackgroundImage = styled.section`
   min-height: 140vh;
   background: url('/images/Group 628010.png') center no-repeat;
-`;
 
+  @media (max-width: 768px) {
+    min-height: 100vh;
+  }
+`;
 
 const HeroSection = styled.section`
   min-height: 50vh;
-  background: url('/images/dots.png')center no-repeat; 
+  background: url('/images/dots.png') center no-repeat; 
   position: relative;
   overflow: hidden;
   color: white;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding-top: 2rem; /* Larger margin top for mobile */
+  }
 `;
 
 const MainTitle = styled.h1`
@@ -25,12 +31,21 @@ const MainTitle = styled.h1`
   padding: 8rem 0 20px 0;
   font-weight: 400;
   font-family: 'Sawarabi Gothic', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 30px;  /* Smaller title for mobile */
+    padding: 6rem 0 20px 0;
+  }
 `;
 
 const SubTitle = styled.p`
   font-family: 'Sawarabi Gothic', sans-serif;
   font-size: 20px;
   color: white;
+
+  @media (max-width: 768px) {
+    font-size: 16px;  /* Smaller subtitle for mobile */
+  }
 `;
 
 const ReserveButton = styled.button`
@@ -45,25 +60,30 @@ const ReserveButton = styled.button`
   margin: 30px 0 80px 0;
 
   &:hover {
-  background: linear-gradient(to right, #FFCB37, #EF7A42);
-  transform: translateY(-1px);
-}
- 
+    background: linear-gradient(to right, #FFCB37, #EF7A42);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 24px;  /* Smaller button for mobile */
+    font-size: 16px; 
+    margin: 20px 0 60px 0;  /* Adjusted margin for mobile */
+  }
 `;
 
 const Card = styled.div`
- background: rgba(20, 20, 20, 0.5);
-  // border: 1px solid rgba(247, 163, 28, 0.3);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 10px;
-  margin: 0 10px;
+  margin: 10px 10px;
   overflow: hidden;
   backdrop-filter: blur(4px);
-  user-select: none; 
+  user-select: none;
+  
 
   img {
     width: 100%;
     height: 300px;
-    padding:10px;
+    padding: 10px;
     object-fit: cover;
   }
 
@@ -73,17 +93,36 @@ const Card = styled.div`
   }
 
   h3 {
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     border-bottom: 0.2px solid rgb(122, 122, 122);
-    font-weight:400;
+    font-weight: 400;
     font-size: 23px;
     margin-bottom: 10px;
   }
 
   p {
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     font-size: 14px;
     line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    /* Smaller cards for mobile */
+    height: 220px;
+    width: 100%;
+
+    h3 {
+      font-size: 18px;  /* Smaller title for mobile */
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 14px;  /* Smaller description for mobile */
+    }
+
+    img {
+      height: 180px;  /* Smaller image for mobile */
+    }
   }
 `;
 
@@ -119,42 +158,42 @@ const Hero = () => {
   return (
     <HeroSection>
       <BackgroundImage>
-      <MainTitle>
-        Make Your Mondays Meaningful: 
-        <br />
-        <span style={{ color: '#f7a31c' }}>Network, Learn, and Grow</span> with
-        <br />
-        Money Monday Dubai!
-      </MainTitle>
-      <SubTitle>
-        Join Dubai's Premier Networking Event For Entrepreneurs And Business Professionals
-        <br />
-        Every Monday Evening.
-      </SubTitle>
-      <ReserveButton>Reserve Your Spot</ReserveButton>
+        <MainTitle>
+          Make Your Mondays Meaningful: 
+          <br />
+          <span style={{ color: '#f7a31c' }}>Network, Learn, and Grow</span> with
+          <br />
+          Money Monday Dubai!
+        </MainTitle>
+        <SubTitle>
+          Join Dubai's Premier Networking Event For Entrepreneurs And Business Professionals
+          <br />
+          Every Monday Evening.
+        </SubTitle>
+        <ReserveButton>Reserve Your Spot</ReserveButton>
 
-      <Carousel
-        showArrows = {false}
-        showStatus={false}
-        showThumbs={false}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={3000}
-        emulateTouch={true}
-        swipeable={true}
-        centerMode
-        centerSlidePercentage={24}
-      >
-        {cards.map((card, index) => (
-          <Card key={index}>
-            <img src={card.image} alt={card.title} />
-            <div className="content">
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-            </div>
-          </Card>
-        ))}
-      </Carousel>
+        <Carousel
+          showArrows={false}
+          showStatus={false}
+          showThumbs={false}
+          infiniteLoop={true}
+          autoPlay={true}
+          interval={3000}
+          emulateTouch={true}
+          swipeable={true}
+          centerMode
+          centerSlidePercentage={24}
+        >
+          {cards.map((card, index) => (
+            <Card key={index}>
+              <img src={card.image} alt={card.title} />
+              <div className="content">
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </div>
+            </Card>
+          ))}
+        </Carousel>
       </BackgroundImage>
     </HeroSection>
   );

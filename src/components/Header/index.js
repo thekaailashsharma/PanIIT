@@ -1,7 +1,7 @@
-// src/components/Header/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi'; // Import icons for hamburger and close
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -11,10 +11,15 @@ const HeaderContainer = styled.header`
   background-color: rgba(0, 0, 0, 0.9);
   padding: 0.9rem 4rem;
   display: flex;
-  gap:5rem;
+  gap: 5rem;
   align-items: center;
   z-index: 1000;
   border-bottom: 0.8px solid #FFCB37;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    padding: 0.9rem 2rem;
+  }
 `;
 
 const LogoContainer = styled(Link)`
@@ -22,7 +27,6 @@ const LogoContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   line-height: 1;
-  margin: 0 0 0 10%;
 `;
 
 const LogoText = styled.span`
@@ -34,34 +38,50 @@ const LogoText = styled.span`
 `;
 
 const LogoSubtext = styled.span`
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 16px;
   font-weight: 600;
-  text-align:center;
+  text-align: center;
   letter-spacing: 2px;
   font-family: 'Montagu Slab', serif;
 `;
 
 const Nav = styled.nav`
-margin: 0 2rem;
   display: flex;
   align-items: center;
   gap: 3rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem;
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    gap: 2rem;
+  }
 `;
 
 const NavLinks = styled.div`
   display: flex;
   gap: 2.5rem;
   align-items: center;
-  font-family: 'Angkor', serif; 
+  font-family: 'Angkor', serif;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
   color: #9b9b9b;
   text-decoration: none;
   font-size: 14px;
-  padding: 0.5rem 1rem; /* Add padding for better spacing */
-  border-radius: 4px; /* Optional: Rounded corners for the background */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
@@ -69,11 +89,10 @@ const StyledNavLink = styled(NavLink)`
   }
 
   &.active {
-    background-color: #333333; /* Selected button background */
-    color: white; /* Ensure text color is visible */
+    background-color: #333333;
+    color: white;
   }
 `;
-
 
 const ReserveButton = styled(Link)`
   background: linear-gradient(to right, #EF7A42, #FFCB37);
@@ -91,8 +110,24 @@ const ReserveButton = styled(Link)`
   }
 `;
 
+const Hamburger = styled.div`
+  display: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 2rem;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <HeaderContainer>
       <LogoContainer to="/">
@@ -100,14 +135,18 @@ const Header = () => {
         <LogoSubtext>DUBAI</LogoSubtext>
       </LogoContainer>
 
-      <Nav>
+      <Hamburger onClick={toggleMenu}>
+        {menuOpen ? <FiX /> : <FiMenu />}
+      </Hamburger>
+
+      <Nav isOpen={menuOpen}>
         <NavLinks>
-          <StyledNavLink to="/" end>Home</StyledNavLink>
-          <StyledNavLink to="/events">Events</StyledNavLink>
-          <StyledNavLink to="/about">About</StyledNavLink>
-          <StyledNavLink to="/traders-brawl">Traders Brawl</StyledNavLink>
+          <StyledNavLink to="/" end onClick={() => setMenuOpen(false)}>Home</StyledNavLink>
+          <StyledNavLink to="/events" onClick={() => setMenuOpen(false)}>Events</StyledNavLink>
+          <StyledNavLink to="/about" onClick={() => setMenuOpen(false)}>About</StyledNavLink>
+          <StyledNavLink to="/traders-brawl" onClick={() => setMenuOpen(false)}>Traders Brawl</StyledNavLink>
         </NavLinks>
-        <ReserveButton to="/reserve">Reserve Your Spot</ReserveButton>
+        <ReserveButton to="/reserve" onClick={() => setMenuOpen(false)}>Reserve Your Spot</ReserveButton>
       </Nav>
     </HeaderContainer>
   );

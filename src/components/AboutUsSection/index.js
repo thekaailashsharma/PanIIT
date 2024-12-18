@@ -14,6 +14,10 @@ const AboutUsSectionContainer = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
   color: white;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -23,6 +27,10 @@ const Title = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -30,11 +38,20 @@ const Subtitle = styled.h3`
   color: #CCCCCC;
   margin-bottom: 10px;
   font-weight: normal;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const Description = styled.p`
   margin-bottom: 30px;
   color: #CCCCCC;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -43,6 +60,13 @@ const IconContainer = styled.div`
   gap: 22px;
   margin-bottom: 30px;
   width: 1102px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 `;
 
 const IconBox = styled.a`
@@ -74,6 +98,12 @@ const IconBox = styled.a`
     width: 40px;
     margin-bottom: 10px;
   }
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 100px;
+    font-size: 12px;
+  }
 `;
 
 const FormContainer = styled.form`
@@ -81,21 +111,31 @@ const FormContainer = styled.form`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   gap: 20px;
-  min-width:1102px;
-  height: 618px;
+  width: 100%;
+  max-width: 1102px;
   margin: 0 auto;
   padding: 20px;
   background: rgba(17, 17, 17, 0.9);
   border-radius: 8px;
   margin-bottom: 30px;
-`;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    margin: 0 auto;
+  }
+`;
 
 const InputGroup = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 22px;
   grid-column: span 2;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 `;
 
 const Label = styled.label`
@@ -106,20 +146,29 @@ const Label = styled.label`
   margin-bottom: 4px;
   font-weight: normal;
   text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Input = styled.input`
-  padding: 15px;
+  padding: 12px;
   background: transparent;
   border: none;
   border-bottom: 1px solid #333;
   color: white;
   width: 100%;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #A8A8A8;
     font-size: 0.9rem;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
   }
 `;
 
@@ -128,15 +177,21 @@ const TextArea = styled.textarea`
   background: transparent;
   border: none;
   border-bottom: 1px solid #333;
-  padding: 15px;
+  padding: 12px;
   color: white;
   width: 100%;
   height: 50px;
   resize: none;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #A8A8A8;
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    height: auto;
   }
 `;
 
@@ -149,6 +204,12 @@ const CheckboxContainer = styled.div`
   span {
     color: #6F6F6F;
     font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 `;
 
@@ -173,6 +234,11 @@ const SubmitButton = styled.button`
 
   &:hover {
     opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 12px 0;
   }
 `;
 
@@ -249,41 +315,45 @@ const AboutUsSection = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
-            <Label htmlFor="email">Email*</Label>
-            <Input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="So we can respond promptly to your enquiry"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <Label htmlFor="referredBy">Who Referred You?</Label>
-            <Input
-              type="text"
-              name="referredBy"
-              id="referredBy"
-              placeholder="So we can say thank you"
-              value={formData.referredBy}
-              onChange={handleChange}
-            />
-          </div>
         </InputGroup>
-        
-        <Label htmlFor="message">Message*</Label>
-        <TextArea
-          name="message"
-          id="message"
-          placeholder="Give us more details about your request"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-        
+
+        <div>
+          <Label htmlFor="email">Your Email*</Label>
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="We’ll send your response here"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="referredBy">How Did You Hear About Us?</Label>
+          <Input
+            type="text"
+            name="referredBy"
+            id="referredBy"
+            placeholder="Optional"
+            value={formData.referredBy}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="message">Message*</Label>
+          <TextArea
+            name="message"
+            id="message"
+            placeholder="Tell us how we can assist you"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         <CheckboxContainer>
           <div>
             <Checkbox
@@ -292,10 +362,11 @@ const AboutUsSection = () => {
               checked={formData.consent}
               onChange={handleChange}
             />
-            <span>I agree and consent to the Privacy Policy, its terms of processing of my personal data.</span>
+            <span>I agree to the terms and conditions.</span>
           </div>
-          <SubmitButton type="submit">Let's Work Together</SubmitButton>
         </CheckboxContainer>
+
+        <SubmitButton type="submit">Send Message</SubmitButton>
       </FormContainer>
     </AboutUsSectionContainer>
   );

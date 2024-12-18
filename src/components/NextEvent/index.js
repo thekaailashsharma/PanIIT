@@ -37,6 +37,16 @@ const Title = styled.h2`
     color: #f7a31c;
     font-family: 'Satoshi', sans-serif;
   }
+
+  @media (max-width: 768px) {
+    font-size: 40px; /* Adjust title size for tablets */
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 32px; /* Adjust title size for mobile */
+    margin-bottom: 20px;
+  }
 `;
 
 const EventCard = styled.div`
@@ -47,16 +57,32 @@ const EventCard = styled.div`
   background-color: rgba(30, 30, 30, 0.45);
   backdrop-filter: blur(2px);
   text-align: center;
+  height: 65vh; /* Adjusted height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content stays in place */
+  
   img {
     width: 100%;
-    height: 300px;
+    height: 200px; /* Adjusted image height */
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
   }
-    &:hover{
-  border-left: 2px solid #EF7A42;
-    }
+
+  &:hover {
+    border-left: 2px solid #EF7A42;
+  }
+
+  @media (max-width: 768px) {
+    margin: 0rem 1rem;
+  }
+
+  @media (max-width: 480px) {
+    margin: 0rem;
+    padding: 15px;
+    height: 60vh; /* Adjusted height for mobile */
+  }
 `;
 
 const EventTitle = styled.h3`
@@ -64,12 +90,28 @@ const EventTitle = styled.h3`
   font-family: 'Sawarabi Gothic', sans-serif;
   color: white;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 24px; /* Adjust title size for tablets */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px; /* Adjust title size for mobile */
+  }
 `;
 
 const EventDetails = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); /* Adjust grid layout for tablets */
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; /* Adjust grid layout for mobile */
+  }
 `;
 
 const DetailBox = styled.div`
@@ -87,6 +129,14 @@ const DetailBox = styled.div`
   p {
     color: white;
     font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px; /* Further reduce padding for mobile */
   }
 `;
 
