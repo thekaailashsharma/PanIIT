@@ -6,13 +6,17 @@ const Section = styled.div`
   position: relative;
   overflow: hidden;
   font-family: 'Satoshi', sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
 `;
 
 const ImageDiamond = styled.img`
-  width: 90%;  // Make sure it stretches to the container's width
+  width: 90%;
   padding: 0 0 0 3rem;
-  height: auto;  // Maintain the aspect ratio
-  display: block;  // Remove extra space below the image
+  height: auto;
+  display: block;
   z-index: 0;
   position: absolute;
 
@@ -30,7 +34,7 @@ const Container = styled.div`
   z-index: 2;
 
   @media (max-width: 768px) {
-    height: auto;  // Allow the container to adjust height for smaller screens
+    height: auto;
     padding: 0 15px;
   }
 `;
@@ -195,53 +199,53 @@ const VideoContainer = styled.div`
 
 const WhatIs = () => {
   return (
-    <Section>
-      <Title1>
-        See Our <span>Past Editions</span>
-      </Title1>
-      <Container>
-        <ImageDiamond src="/images/diamond_gray.png" alt="Diamond" />
-        <Content>
-          <Title>
-            What is
-            <span>Money Monday Dubai?</span>
-          </Title>
-          <Description>
-            Money Monday Dubai is a professional networking soirée held every Monday,
-            bringing together entrepreneurs, founders, and business professionals from diverse
-            industries such as Web3, blockchain, Forex, IT, and finance. Our mission is to create
-            meaningful connections and provide actionable insights for business growth.
-          </Description>
-        </Content>
-        <ContainerStat>
-          <Stats>
-            <StatItem>
-              <StatNumber>6<span>+</span></StatNumber>
-              <StatLabel>Successful Events Hosted</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>850<span>+</span></StatNumber>
-              <StatLabel>Active Members In Our Community</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>10k<span>+</span></StatNumber>
-              <StatLabel>Official Partner Of The Bitcoin Mena Conference.</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>850<span>+</span></StatNumber>
-              <StatLabel>Active Members In Our Community</StatLabel>
-            </StatItem>
-          </Stats>
-          <VideoContainer>
-            <div className="play-button">
-              <svg viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-          </VideoContainer>
-        </ContainerStat>
-      </Container>
-    </Section>
+      <Section>
+        <Title1>
+          See Our <span>Past Editions</span>
+        </Title1>
+        <Container>
+          <ImageDiamond src="/images/diamond_gray.png" alt="Diamond" />
+          <Content>
+            <Title>
+              What is
+              <span>Money Monday Dubai?</span>
+            </Title>
+            <Description>
+              Money Monday Dubai is a professional networking soirée held every Monday,
+              bringing together entrepreneurs, founders, and business professionals from diverse
+              industries such as Web3, blockchain, Forex, IT, and finance. Our mission is to create
+              meaningful connections and provide actionable insights for business growth.
+            </Description>
+          </Content>
+          <ContainerStat>
+            <Stats>
+              <StatItem>
+                <StatNumber>6<span>+</span></StatNumber>
+                <StatLabel>Successful Events Hosted</StatLabel>
+              </StatItem>
+              <StatItem>
+                <StatNumber>850<span>+</span></StatNumber>
+                <StatLabel>Active Members In Our Community</StatLabel>
+              </StatItem>
+              <StatItem>
+                <StatNumber>10k<span>+</span></StatNumber>
+                <StatLabel>Official Partner Of The Bitcoin Mena Conference.</StatLabel>
+              </StatItem>
+              <StatItem>
+                <StatNumber>850<span>+</span></StatNumber>
+                <StatLabel>Active Members In Our Community</StatLabel>
+              </StatItem>
+            </Stats>
+            <VideoContainer>
+              <div className="play-button">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </VideoContainer>
+          </ContainerStat>
+        </Container>
+      </Section>
   );
 };
 

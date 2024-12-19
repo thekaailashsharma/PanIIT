@@ -17,7 +17,7 @@ const PoweredBy = () => {
             display: "flex",
             justifyContent: "center",
             gap: "20px",
-            margin: '0 0 15rem 0',
+            margin: '0 0 5rem 0',
             flexWrap: "wrap",
         },
         partnerLogo: {
@@ -25,24 +25,25 @@ const PoweredBy = () => {
             borderRadius: "8px",
             display: "flex",
             alignItems: "center",
+            justifyContent: "center",
             fontSize: "18px",
             fontWeight: "bold",
             color: "#fff",
             gap: "8px",
             backgroundColor: "#ffffff",
-            width: '300px',
+            width: '250px',
             height: '100px',
             padding: '0 auto',
             border: "1px solid rgba(57, 57, 57, 0.56)",
             boxShadow: `
-        inset 0px 2px 2px 0px #525154, /* Inner Shadow */
-        0px 13px 25px 0px rgba(0, 0, 0, 1) /* Drop Shadow */
-    `,
+                inset 0px 2px 2px 0px #525154, /* Inner Shadow */
+                0px 13px 25px 0px rgba(0, 0, 0, 1) /* Drop Shadow */
+            `,
         },
         partnerLogoImage: {
             filter: 'brightness(0) invert(1)',
             maxHeight: "30px",
-            margin: 'auto'
+            maxWidth: "80%",
         },
         opportunity: {
             border: "0.5px solid rgba(112, 112, 112, 0.6)",
@@ -50,23 +51,27 @@ const PoweredBy = () => {
             color: "#fff",
             margin: "50px auto",
             borderRadius: "12px",
-            width: "1400px",
-            height: '450px',
+            width: "90%",
+            maxWidth: "1400px",
+            height: 'auto',
             display: 'flex',
             flexDirection: 'row',
+            alignItems: 'center',
+            padding: "20px",
+            gap: "20px",
+            flexWrap: "wrap",
         },
         opportunityHeading: {
-
-            fontSize: "52px",
+            fontSize: "32px",
             fontWeight: '400',
             margin: "0 0 20px",
         },
         button: {
             background: "linear-gradient(90deg, #f57c00, #ffca28)",
-            fontSize: '25px',
+            fontSize: '18px',
             fontWeight: '600',
-            width: '420px',
-            height: '62px',
+            width: '300px',
+            height: '50px',
             border: "none",
             padding: "10px 25px",
             color: "#000",
@@ -74,16 +79,16 @@ const PoweredBy = () => {
             borderRadius: "8px",
             transition: "transform 0.2s ease",
         },
-        buttonHover: {
-            transform: "scale(1.05)",
-        },
     };
+
+    // Media query styles for responsiveness
+    const isSmallScreen = window.innerWidth <= 768;
 
     return (
         <div style={styles.poweredBy}>
             {/* Partners Section */}
             <div style={styles.partners}>
-                <h2 style={{fontSize: "60px", fontWeight: '400', margin: '0 0 2rem 0'}}>Our Partners</h2>
+                <h2 style={{ fontSize: "40px", fontWeight: '400', margin: '0 0 2rem 0' }}>Our Partners</h2>
                 <div style={styles.partnerLogos}>
                     <div style={styles.partnerLogo}>
                         <img
@@ -117,14 +122,28 @@ const PoweredBy = () => {
             </div>
 
             {/* Opportunity Section */}
-            <div style={styles.opportunity}>
-                <img src="/images/circleOpp.png" alt="circle"/>
-                <div style={{margin: 'auto 2rem'}}>
-                    <h3 style={styles.opportunityHeading}>
-                        Your Next Big Opportunity<br/> Awaits!
+            <div style={{
+                ...styles.opportunity,
+                flexDirection: isSmallScreen ? 'column' : 'row',
+                textAlign: isSmallScreen ? 'center' : 'left',
+            }}>
+                <img
+                    src="/images/circleOpp.png"
+                    alt="circle"
+                    style={{ maxWidth: isSmallScreen ? "200px" : "400px", margin: "auto" }}
+                />
+                <div style={{ margin: isSmallScreen ? '20px auto' : 'auto 2rem' }}>
+                    <h3 style={{
+                        ...styles.opportunityHeading,
+                        fontSize: isSmallScreen ? "28px" : "52px",
+                    }}>
+                        Your Next Big Opportunity<br /> Awaits!
                     </h3>
                     <button
-                        style={styles.button}
+                        style={{
+                            ...styles.button,
+                            width: isSmallScreen ? '100%' : '300px',
+                        }}
                         onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                         onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                         onClick={() => alert("Redirecting to registration...")}

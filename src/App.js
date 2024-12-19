@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
@@ -15,39 +14,45 @@ import Testimonials from "./components/Testimonials";
 import Community from "./components/Community";
 import Events from './components/Events';
 import About from './components/About';
-import OurPartners from "./components/OurPartners"
+import OurPartners from "./components/OurPartners";
 import "./index.css";
 
 function App() {
   return (
-    <Router>
-      <GlobalStyles />
-      <Header />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Hero/>
-            <WhatIs />
-            <WhyJoin />
-            <NextEvent />
-            <Panelists />
-            <PoweredBy />
-            <Testimonials />
-            <Community />
-            <OurPartners />
-          </>
-        } />
-        <Route path="/events" element={<Events />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/traders-brawl">
-          {/* Your Traders Brawl Component */}
-        </Route>
-        <Route path="/reserve">
-          {/* Your Reserve Component */}
-        </Route>
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <GlobalStyles />
+        <div style={{ overflowX: 'hidden', position: 'relative' }}>
+          {/* Wrapping the content to ensure no horizontal overflow */}
+          <Header />
+          <Routes>
+            <Route
+                path="/"
+                element={
+                  <>
+                    <Hero />
+                    <WhatIs />
+                    <WhyJoin />
+                    <NextEvent />
+                    <Panelists />
+                    <PoweredBy />
+                    <Testimonials />
+                    <Community />
+                    <OurPartners />
+                  </>
+                }
+            />
+            <Route path="/events" element={<Events />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/traders-brawl">
+              {/* Your Traders Brawl Component */}
+            </Route>
+            <Route path="/reserve">
+              {/* Your Reserve Component */}
+            </Route>
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
   );
 }
 
