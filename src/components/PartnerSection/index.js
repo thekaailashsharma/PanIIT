@@ -9,24 +9,33 @@ const PartnerSectionContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 42px;
+  margin-bottom: 7px;
 `;
 
 const Subtitle = styled.p`
-  font-size: 1rem;
+  font-size: 38px;
   margin-bottom: 40px;
+  color: #f7a31c;
+`;
+
+const Para = styled.p`
+  font-size: 22px;
+  margin-bottom: 40px;
+  align-content: center;
+  margin-left: 140px;
+  margin-right: 140px;
 `;
 
 const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Space between cards */
+  gap: 4px; /* Space between cards */
 `;
 
 const Card = styled.div`
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
   border-radius: 8px;
   padding: 20px;
   width: 250px; /* Card width */
@@ -38,6 +47,12 @@ const CardTitle = styled.h3`
   margin-bottom: 10px;
 `;
 
+const CardImage = styled.img`
+    width: 30%; /* Full width for the image */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+  margin-bottom: 8px;
+`;
+
 const CardDescription = styled.p`
   font-size: 0.9rem;
 `;
@@ -45,31 +60,52 @@ const CardDescription = styled.p`
 const PartnerSection = () => {
   return (
     <PartnerSectionContainer>
-      <Title>Why Your Brand Should Partner With Us?</Title>
-      <Subtitle>
+      <Title>
+        <div>
+          Why Your Brand Should <br/>
+          <Subtitle>
+            Partner With Us?
+          </Subtitle>
+        </div></Title>
+      <Para>
         Gain direct access to a growing community of business professionals, decision-makers, founders, and investors. Elevate your brand visibility in one of Dubai's most prestigious networking events.
-      </Subtitle>
+      </Para>
       <CardsContainer>
-        <Card>
-          <CardTitle>Direct Exposure</CardTitle>
-          <CardDescription>Showcase Your Brand To 500+ Attendees Every Week.</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>Brand Credibility</CardTitle>
-          <CardDescription>Associate Your Name With Dubai’s Top Business And Networking Event.</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>Lasting Impressions</CardTitle>
-          <CardDescription>Your Logo On Banners, Event Materials, Emails, And Our Website.</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>Custom Visibility</CardTitle>
-          <CardDescription>Get Highlighted During Panel Discussions And Through Shoutouts By Moderators.</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>Endless Networking</CardTitle>
-          <CardDescription>Direct Access To Entrepreneurs, Founders, And Potential Partners.</CardDescription>
-        </Card>
+        <div>
+          <Card>
+            <CardImage src="/images/full-eclipse.png" alt="Eclipse" />
+            <CardTitle>Direct Exposure</CardTitle>
+            <CardDescription>Showcase Your Brand To 500+ Attendees Every Week.</CardDescription>
+          </Card>
+          <Card>
+            <CardImage src="/images/full-eclipse.png" alt="Eclipse" />
+            <CardTitle>Brand Credibility</CardTitle>
+            <CardDescription>Associate Your Name With Dubai’s Top Business And Networking Event.</CardDescription>
+          </Card>
+          <Card>
+            <CardImage src="/images/full-eclipse.png" alt="Eclipse" />
+            <CardTitle>Lasting Impressions</CardTitle>
+            <CardDescription>Your Logo On Banners, Event Materials, Emails, And Our Website.</CardDescription>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <CardImage src="/images/full-eclipse.png" alt="Eclipse" />
+            <CardTitle>Custom Visibility</CardTitle>
+            <CardDescription>Get Highlighted During Panel Discussions And Through Shoutouts By Moderators.</CardDescription>
+          </Card>
+          <Card>
+            <CardImage src="/images/full-eclipse.png" alt="Eclipse" />
+            <CardTitle>Endless Networking</CardTitle>
+            <CardDescription>Direct Access To Entrepreneurs, Founders, And Potential Partners.</CardDescription>
+          </Card>
+          <Card>
+            <CardImage src="/images/full-eclipse.png" alt="Eclipse" />
+            <CardTitle>Lasting Impressions</CardTitle>
+            <CardDescription>Your Logo On Banners, Event Materials, Emails, And Our Website.</CardDescription>
+          </Card>
+        </div>
+
       </CardsContainer>
     </PartnerSectionContainer>
   );

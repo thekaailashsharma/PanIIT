@@ -12,12 +12,16 @@ const EventsContainer = styled.div`
   padding: 100px 20px;
   color: white;
   height: 100vh;
-  background: url('/images/eclipse.png') no-repeat center center;
-  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
 `;
 
 const TextContainer = styled.div`
   max-width: 50%;
+    margin-left: 60px;
+    margin-top: 120px;
 `;
 
 const Title = styled.h1`
@@ -33,12 +37,17 @@ const Subtitle = styled.h2`
 const Description = styled.p`
   font-size: 1rem;
   color: #cccccc;
+    margin-bottom: 20px;
 `;
 
 const Image = styled.img`
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
+  width: 30%;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+    margin-bottom: 50px;
 `;
 
 const Events = () => {
@@ -46,11 +55,10 @@ const Events = () => {
     <>
       <EventsContainer>
         <TextContainer>
-          <Title>Promote Your Brand</Title>
-          <Subtitle>Every Monday at Money Monday Dubai!</Subtitle>
+          <Title>Promote Your Brand Every Monday</Title>
+          <Subtitle>at Money Monday Dubai!</Subtitle>
           <Description>
-            Showcase Your Project To Dubai's Top Entrepreneurs, Founders, And Industry Professionals. Choose A Monthly Or Yearly Sponsorship Plan That Fits Your Brand's Goals.
-          </Description>
+              Showcase your project to Dubai's top entrepreneurs, founders, and industry professionals. Choose a monthly or yearly sponsorship plan that fits your brand's goals.          </Description>
           <button style={{ backgroundColor: '#f7a31c', color: 'black', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
             Become Sponsor Today
           </button>
@@ -59,7 +67,6 @@ const Events = () => {
       </EventsContainer>
       <PartnerSection />
       <SponsorshipSection />
-      <QuickMeeting />
       <FAQSection />
     </>
   );

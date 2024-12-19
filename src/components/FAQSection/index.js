@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FaPlus, FaMinus } from 'react-icons/fa'; // Importing icons
 
 const FAQSectionContainer = styled.div`
   background-color: #000; /* Background color */
@@ -8,20 +9,22 @@ const FAQSectionContainer = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h2`
+const Title = styled.p`
   font-size: 2rem;
   margin-bottom: 10px;
+  font-family: "SawarabiGothic", Arial, sans-serif;
 `;
 
-const Subtitle = styled.h3`
+const Subtitle = styled.p`
   font-size: 1.5rem;
   color: #f7a31c; /* Golden color for subtitle */
   margin-bottom: 20px;
+  font-family: 'Sawarabi Gothic', sans-serif;
 `;
 
 const QuestionsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
   gap: 20px; /* Space between questions */
 `;
 
@@ -30,24 +33,37 @@ const QuestionContainer = styled.div`
   border-radius: 8px;
   padding: 15px;
   cursor: pointer;
-  transition: background-color 0.3s, border 0.3s;
+  transition: border 0.3s, height 0.3s;
   border: 1px solid transparent; /* Default border */
-
+  position: relative; /* Added for positioning the border */
+  height: ${({ isOpen }) => (isOpen ? 'auto' : '60px')};
+  
   &:hover {
-    background: linear-gradient(90deg, rgba(247, 163, 28, 0.2), rgba(247, 163, 28, 0.5)); /* Golden gradient on hover */
     border: 1px solid #f7a31c; /* Golden border on hover */
+    height: auto; /* Expand on hover */
+  }
+
+  &.active {
+    border: 1px solid #f7a31c; /* Active border */
   }
 `;
 
 const Question = styled.h3`
   font-size: 1.2rem;
   margin: 0;
+  display: flex;
+  justify-content: space-between; /* Align question and icon */
+  align-items: center; /* Center vertically */
 `;
 
 const Answer = styled.p`
   font-size: 0.9rem;
   margin: 10px 0 0 0;
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')}; /* Show or hide answer */
+  display: ${({isOpen}) => (isOpen ? 'block' : 'none')}; /* Show or hide answer */
+  padding: 10px; /* Padding for the answer */
+  background-color: transparent; /* Background for the answer */
+  border-radius: 8px; /* Rounded corners */
+  color: white; /* Keep answer text color white */
 `;
 
 const FAQSection = () => {
@@ -78,17 +94,33 @@ const FAQSection = () => {
       question: "How do I use this?",
       answer: "You can use this platform to connect with potential customers and partners.",
     },
+    {
+      question: "How do I know my brand is being promoted?",
+      answer: "You will receive updates and reports on your brand's exposure.",
+    },
   ];
-
+  
   return (
     <FAQSectionContainer>
       <Title>Got Questions?</Title>
       <Subtitle>We’ve Got Answers!</Subtitle>
       <QuestionsGrid>
         {faqs.map((faq, index) => (
-          <QuestionContainer key={index} onClick={() => toggleAnswer(index)}>
-            <Question>{faq.question}</Question>
-            <Answer isOpen={openIndex === index}>{faq.answer}</Answer>
+          <QuestionContainer 
+            key={index} 
+            onClick={() => toggleAnswer(index)} 
+            className={openIndex === index ? 'active' : ''} 
+            isOpen={openIndex === index}
+          >
+            <Question>
+              {faq.question}
+              <span>
+                {openIndex === index ? <FaMinus /> : <FaPlus />} {/* Plus/Minus icon */}
+              </span>
+            </Question>
+            <Answer isOpen={openIndex === index}>
+              {openIndex === index ? faq.answer : "You can sponsor for as little as 1 month or choose an annual plan for better rates."}
+            </Answer>
           </QuestionContainer>
         ))}
       </QuestionsGrid>
