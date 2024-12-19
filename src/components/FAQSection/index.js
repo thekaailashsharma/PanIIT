@@ -26,6 +26,10 @@ const QuestionsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns */
   gap: 20px; /* Space between questions */
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
 `;
 
 const QuestionContainer = styled.div`
@@ -37,7 +41,7 @@ const QuestionContainer = styled.div`
   border: 1px solid transparent; /* Default border */
   position: relative; /* Added for positioning the border */
   height: ${({ isOpen }) => (isOpen ? 'auto' : '60px')};
-  
+
   &:hover {
     border: 1px solid #f7a31c; /* Golden border on hover */
     height: auto; /* Expand on hover */
@@ -59,7 +63,7 @@ const Question = styled.h3`
 const Answer = styled.p`
   font-size: 0.9rem;
   margin: 10px 0 0 0;
-  display: ${({isOpen}) => (isOpen ? 'block' : 'none')}; /* Show or hide answer */
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')}; /* Show or hide answer */
   padding: 10px; /* Padding for the answer */
   background-color: transparent; /* Background for the answer */
   border-radius: 8px; /* Rounded corners */
@@ -99,33 +103,33 @@ const FAQSection = () => {
       answer: "You will receive updates and reports on your brand's exposure.",
     },
   ];
-  
+
   return (
-    <FAQSectionContainer>
-      <Title>Got Questions?</Title>
-      <Subtitle>We’ve Got Answers!</Subtitle>
-      <QuestionsGrid>
-        {faqs.map((faq, index) => (
-          <QuestionContainer 
-            key={index} 
-            onClick={() => toggleAnswer(index)} 
-            className={openIndex === index ? 'active' : ''} 
-            isOpen={openIndex === index}
-          >
-            <Question>
-              {faq.question}
-              <span>
+      <FAQSectionContainer>
+        <Title>Got Questions?</Title>
+        <Subtitle>We’ve Got Answers!</Subtitle>
+        <QuestionsGrid>
+          {faqs.map((faq, index) => (
+              <QuestionContainer
+                  key={index}
+                  onClick={() => toggleAnswer(index)}
+                  className={openIndex === index ? 'active' : ''}
+                  isOpen={openIndex === index}
+              >
+                <Question>
+                  {faq.question}
+                  <span>
                 {openIndex === index ? <FaMinus /> : <FaPlus />} {/* Plus/Minus icon */}
               </span>
-            </Question>
-            <Answer isOpen={openIndex === index}>
-              {openIndex === index ? faq.answer : "You can sponsor for as little as 1 month or choose an annual plan for better rates."}
-            </Answer>
-          </QuestionContainer>
-        ))}
-      </QuestionsGrid>
-    </FAQSectionContainer>
+                </Question>
+                <Answer isOpen={openIndex === index}>
+                  {faq.answer}
+                </Answer>
+              </QuestionContainer>
+          ))}
+        </QuestionsGrid>
+      </FAQSectionContainer>
   );
 };
 
-export default FAQSection; 
+export default FAQSection;
