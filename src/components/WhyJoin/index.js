@@ -19,7 +19,7 @@ const Title = styled.h2`
   font-size: 56px;
   line-height: 1.2;
   margin-bottom: 20px;
-  font-family: "Satoshi", sans-serif;
+  font-family: 'Satoshi', sans-serif;
 
   .highlight {
     color: #f7a31c;
@@ -40,7 +40,7 @@ const Title = styled.h2`
 
 const Subtitle = styled.h3`
   color: #cccccc;
-  font-family: "Angkor", sans-serif;
+  font-family: 'Angkor', sans-serif;
   font-size: 24px;
   margin-bottom: 60px;
   font-weight: 400;
@@ -77,14 +77,14 @@ const Card = styled.div`
   border-radius: 10px;
 
   img {
-    width: 100%;
+    width: 45%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
 
   &:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05); /* Slight zoom effect on hover */
   }
 
   @media (max-width: 768px) {
@@ -99,8 +99,8 @@ const CardContent = styled.div`
   left: 0;
   right: 0;
   padding: 20px;
-  font-family: "Sawarabi Gothic", sans-serif;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  font-family: 'Sawarabi Gothic', sans-serif;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
   color: white;
   text-align: left;
 
@@ -113,7 +113,7 @@ const CardContent = styled.div`
 
   .orange-text {
     font-weight: 700;
-    font-family: "Satoshi", sans-serif;
+    font-family: 'Satoshi', sans-serif;
     color: #f7a31c;
   }
 
@@ -173,7 +173,10 @@ const WhyJoin = () => {
             showThumbs={false}
             showStatus={false}
             swipeable
-            centerMode={false} /* Disabled centerMode for better responsiveness */
+            centerMode={false} // Disabled centerMode for better responsiveness
+            dynamicHeight={false}
+            emulateTouch
+            centerSlidePercentage={20} // Show 4-5 items on desktop (roughly 20% of the container width)
         >
           {cards.map((card, index) => (
               <div key={index}>

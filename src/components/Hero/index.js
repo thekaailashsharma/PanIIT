@@ -84,8 +84,13 @@ const Card = styled.div`
 
   img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 300px; /* Set a fixed height for images on desktop */
+    object-fit: cover; /* Ensure the image covers the area */
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05); /* Scale effect on hover */
+    }
   }
 
   .content {
@@ -116,7 +121,7 @@ const Card = styled.div`
     height: auto;
 
     img {
-      height: 180px;
+      height: 180px; /* Adjust height for mobile */
     }
 
     h3 {
@@ -187,6 +192,8 @@ const Hero = ({ onReserveClick }) => {
               centerSlidePercentage={80} // Adjusted for mobile
               stopOnHover
               dynamicHeight
+              width="100%" // Ensure the carousel occupies full width
+              selectedItem={0}
           >
             {cardData.map((card, index) => (
                 <Card key={index}>

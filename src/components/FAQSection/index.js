@@ -7,6 +7,12 @@ const FAQSectionContainer = styled.div`
   color: white;
   padding: 40px 20px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+  border-radius: 10px; /* Rounded corners for container */
+  @media (max-width: 768px) {
+    padding: 30px 15px; /* Adjust padding for smaller screens */
+  }
 `;
 
 const Title = styled.p`
@@ -26,9 +32,11 @@ const QuestionsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns */
   gap: 20px; /* Space between questions */
+  margin-top: 30px; /* Add margin for spacing between title and questions */
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr; /* Single column on smaller screens */
+    gap: 15px; /* Smaller gap on mobile */
   }
 `;
 
@@ -41,6 +49,7 @@ const QuestionContainer = styled.div`
   border: 1px solid transparent; /* Default border */
   position: relative; /* Added for positioning the border */
   height: ${({ isOpen }) => (isOpen ? 'auto' : '60px')};
+  margin: 0; /* Ensures no additional margin is applied */
 
   &:hover {
     border: 1px solid #f7a31c; /* Golden border on hover */
@@ -49,6 +58,10 @@ const QuestionContainer = styled.div`
 
   &.active {
     border: 1px solid #f7a31c; /* Active border */
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px; /* Adjust padding for mobile */
   }
 `;
 

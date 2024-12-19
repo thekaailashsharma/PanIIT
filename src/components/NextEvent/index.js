@@ -57,11 +57,11 @@ const EventCard = styled.div`
   background-color: rgba(30, 30, 30, 0.45);
   backdrop-filter: blur(2px);
   text-align: center;
-  height: 65vh; /* Adjusted height */
+  height: 70vh; /* Adjusted height for desktop */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensures content stays in place */
-  
+
   img {
     width: 100%;
     height: 200px; /* Adjusted image height */
@@ -76,12 +76,13 @@ const EventCard = styled.div`
 
   @media (max-width: 768px) {
     margin: 0rem 1rem;
+    height: 70vh; /* Adjusted height for tablets */
   }
 
   @media (max-width: 480px) {
     margin: 0rem;
     padding: 15px;
-    height: 60vh; /* Adjusted height for mobile */
+    height: auto; /* Allow content to grow for mobile */
   }
 `;
 
@@ -110,7 +111,7 @@ const EventDetails = styled.div`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr; /* Adjust grid layout for mobile */
+    grid-template-columns: 1fr; /* Ensure 1 column for mobile */
   }
 `;
 
@@ -159,47 +160,47 @@ const NextEvent = () => {
   ];
 
   return (
-    <Section>
-      <GridBackground />
-      <Container>
-        <Title>
-          Next <span>Event</span> Details
-        </Title>
+      <Section>
+        <GridBackground />
+        <Container>
+          <Title>
+            Next <span>Event</span> Details
+          </Title>
 
-        {/* React Responsive Carousel */}
-        <Carousel
-          showArrows
-          autoPlay
-          interval={5000}
-          showThumbs={false}
-          showStatus={false}
-          centerMode
-          centerSlidePercentage={75}
-          swipeable
-        >
-          {events.map((event, index) => (
-            <EventCard key={index}>
-              <img src={event.image} alt={event.title} />
-              <EventTitle>{event.title}</EventTitle>
-              <EventDetails>
-                <DetailBox>
-                  <h4>Date</h4>
-                  <p>{event.date}</p>
-                </DetailBox>
-                <DetailBox>
-                  <h4>Time</h4>
-                  <p>{event.time}</p>
-                </DetailBox>
-                <DetailBox>
-                  <h4>Venue</h4>
-                  <p>{event.venue}</p>
-                </DetailBox>
-              </EventDetails>
-            </EventCard>
-          ))}
-        </Carousel>
-      </Container>
-    </Section>
+          {/* React Responsive Carousel */}
+          <Carousel
+              showArrows
+              autoPlay
+              interval={5000}
+              showThumbs={false}
+              showStatus={false}
+              centerMode
+              centerSlidePercentage={75}
+              swipeable
+          >
+            {events.map((event, index) => (
+                <EventCard key={index}>
+                  <img src={event.image} alt={event.title} />
+                  <EventTitle>{event.title}</EventTitle>
+                  <EventDetails>
+                    <DetailBox>
+                      <h4>Date</h4>
+                      <p>{event.date}</p>
+                    </DetailBox>
+                    <DetailBox>
+                      <h4>Time</h4>
+                      <p>{event.time}</p>
+                    </DetailBox>
+                    <DetailBox>
+                      <h4>Venue</h4>
+                      <p>{event.venue}</p>
+                    </DetailBox>
+                  </EventDetails>
+                </EventCard>
+            ))}
+          </Carousel>
+        </Container>
+      </Section>
   );
 };
 
